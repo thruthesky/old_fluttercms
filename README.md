@@ -1,17 +1,14 @@
-# fluttercms
+# 플러터 + 파이어베이스 CMS
 
-A new Flutter project.
+* 개요
+  * 모든 앱에서 회원 가입 및 회원 정보 관리, 그리고 게시판 기능이 필요하다.
+  * 본 프로젝트에서는 플러터와 파이어베이스로 회원 기능 및 게시판 기능을 재 사용이 쉽도록 모듈화 하여, 필요할 때 언제든지 복사해서 쓸 수 있도록 하는 것이다.
+  * 게시판 기능을 확장하여 쇼핑몰이나 블로그 등 다양하게 활용 할 수도 있다.
 
-## Getting Started
+* 참여
+  * [소통하며 배우는 플러터 스터디 그룹 - 카카오톡 단톡방 입장](https://open.kakao.com/o/g20m41Mb)
+  * [네이버 카페 공지사항 참고](https://cafe.naver.com/ionic2/1869)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+* 기존에는 `Firebase Functions` 를 활용하여 회원 관리 + 파이어베이스 CMS 를 만들었는데, `Functions`를 없애고 직접 `Firestore` 에 쿼리를 하므로, 보다 간편해졌다.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# flutterbase
