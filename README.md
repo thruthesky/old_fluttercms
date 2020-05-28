@@ -8,7 +8,7 @@
 * 참여
   * [소통하며 배우는 플러터 스터디 그룹 - 카카오톡 단톡방 입장](https://open.kakao.com/o/g20m41Mb)
   * [네이버 카페 공지사항 참고](https://cafe.naver.com/ionic2/1869)
+  * 소스를 수정하시고 PR 을 해 주시면 됩니다.
 
 
 * 기존에는 `Firebase Functions` 를 활용하여 회원 관리 + 파이어베이스 CMS 를 만들었는데, `Functions`를 없애고 직접 `Firestore` 에 쿼리를 하므로, 보다 간편해졌다.
-
