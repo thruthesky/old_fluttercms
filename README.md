@@ -12,3 +12,17 @@
 
 
 * 기존에는 `Firebase Functions` 를 활용하여 회원 관리 + 파이어베이스 CMS 를 만들었는데, `Functions`를 없애고 직접 `Firestore` 에 쿼리를 하므로, 보다 간편해졌다.
+
+
+
+## 테스트
+
+* 테스트는 필수이다. 테스트 없이 개발한다는 것은 있을 수 없는 일이다.
+* Flutter 에서 Firebase 를 테스트하기 위해서는 Firebase 모듈이 장치나 에뮬레이터에서 실행되어야 한다.
+  * 즉, Unit test 에서는 할 수 없는 것이다.
+* 그래서 `settings.dart` 의 `Settings.testApp` 값이 true 이면 앱이 실행되고 코드가 수정 될 때 마다 테스트를 하도록 한다.
+
+
+### Security Rule Test
+
+* [Flutterbase Security Test](https://github.com/thruthesky/flutterbase-security-test) 를 참고한다.

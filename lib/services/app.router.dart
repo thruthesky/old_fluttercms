@@ -1,6 +1,7 @@
 // import '../pages/post_edit/post.edit.page.dart';
 
 import 'package:fluttercms/pages/home/home.page.dart';
+import 'package:fluttercms/pages/login/login.page.dart';
 import 'package:fluttercms/pages/register/register.page.dart';
 import 'package:fluttercms/services/app.globals.dart';
 
@@ -39,8 +40,8 @@ class AppRouter {
       route = _buildRoute(settings, HomePage());
     else if (settings.name == Routes.register)
       route = _buildRoute(settings, RegisterPage());
-    // else if (settings.name == Routes.login)
-    //   route = _buildRoute(settings, LoginPage());
+    else if (settings.name == Routes.login)
+      route = _buildRoute(settings, LoginPage());
     // else if (settings.name == Routes.help)
     //   route = _buildRoute(settings, HelpPage());
     // else if (settings.name == Routes.settings)
