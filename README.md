@@ -15,14 +15,17 @@
 
 
 
-## 테스트
+## Flutterbase 테스트
 
-* 테스트는 필수이다. 테스트 없이 개발한다는 것은 있을 수 없는 일이다.
 * Flutter 에서 Firebase 를 테스트하기 위해서는 Firebase 모듈이 장치나 에뮬레이터에서 실행되어야 한다.
-  * 즉, Unit test 에서는 할 수 없는 것이다.
+  * 즉, Unit test 에서는 바로 할 수 없고, mocking 통해서 해야하는데 번거롭다.
 * 그래서 `settings.dart` 의 `Settings.testApp` 값이 true 이면 앱이 실행되고 코드가 수정 될 때 마다 테스트를 하도록 한다.
 
 
 ### Security Rule Test
 
-* [Flutterbase Security Test](https://github.com/thruthesky/flutterbase-security-test) 를 참고한다.
+* Firestore 권한에 대한 테스트 코드를 작성하였다.
+  * [Flutterbase Security Test](https://github.com/thruthesky/flutterbase-security-test) 를 참고한다.
+  * `Flutterbase` 의 dart 코드는 mocking 을 하지 않아도, 테스트 할 수 있는 방법이 있지만,
+  * `Firestore Security Test`에서는 mocking 말고는 방법이 없다. 그래서 mocking 으로 권한 테스트를 한다.
+
