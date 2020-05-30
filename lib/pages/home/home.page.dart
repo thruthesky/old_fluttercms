@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
+import 'package:fluttercms/flutterbase/widgets/flutterbase.appbar.dart';
+import 'package:fluttercms/flutterbase/widgets/flutterbase.post_create_action_button.dart';
+import 'package:fluttercms/services/app.defines.dart';
 import 'package:fluttercms/widgets/app.drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,15 +40,33 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('hi'),
-      ),
+      appBar: FlutterbaseAppBar(
+          title: t('title'),
+          actions: FlutterbasePostCreateActionButton(
+            // id: _args['id'],
+            // forum: forum,
+          ),
+          onTapUserPhoto: () =>
+              open(fb.loggedIn ? Routes.register : Routes.login),
+        ),
       endDrawer: AppDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            
+            RaisedButton(
+              onPressed: () => open(Routes.categoryList),
+              child: Text('Category List'),
+            ),
+            RaisedButton(
+              onPressed: () => open(Routes.categoryEdit),
+              child: Text('Category Edit'),
+            ),
+            RaisedButton(
+              onPressed: () =>
+                  open(Routes.postList, arguments: {'id': 'discussion'}),
+              child: Text('Discussoin'),
+            ),
           ],
         ),
       ),

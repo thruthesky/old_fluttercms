@@ -24,9 +24,6 @@ class PostListPage extends StatefulWidget {
 }
 
 class _PostListPageState extends State<PostListPage> {
-  // EngineForum forum = EngineForum();
-
-  // EngineForumListModel forum = EngineForumListModel();
 
   FlutterbaseForumModel forum = FlutterbaseForumModel();
   @override
@@ -40,7 +37,7 @@ class _PostListPageState extends State<PostListPage> {
         forum.init(
           id: _args['id'],
           cacheKey: 'forum-list-' + _args['id'],
-          limit: 10,
+          limit: 4,
           onLoad: (posts) {
             print('loaded by firestore.');
           },
@@ -88,7 +85,6 @@ class _PostListPageState extends State<PostListPage> {
                 return Column(
                   children: <Widget>[
                     if (model.inLoading && forum.pageNo == 1)
-
                       /// 첫 페이지 로더는 맨 위에만
                       PlatformCircularProgressIndicator(),
                     ListView.builder(

@@ -1,7 +1,11 @@
 // import '../pages/post_edit/post.edit.page.dart';
 
+import 'package:fluttercms/pages/admin/admin.page.dart';
+import 'package:fluttercms/pages/category_edit/category_edit.page.dart';
+import 'package:fluttercms/pages/category_list/category_list.page.dart';
 import 'package:fluttercms/pages/home/home.page.dart';
 import 'package:fluttercms/pages/login/login.page.dart';
+import 'package:fluttercms/pages/post_list/post_list.page.dart';
 import 'package:fluttercms/pages/register/register.page.dart';
 import 'package:fluttercms/services/app.globals.dart';
 
@@ -46,18 +50,18 @@ class AppRouter {
     //   route = _buildRoute(settings, HelpPage());
     // else if (settings.name == Routes.settings)
     //   route = _buildRoute(settings, SettingsPage());
-    // else if (settings.name == Routes.categoryEdit)
-    //   route = _buildRoute(settings, CategoryEditPage());
-    // else if (settings.name == Routes.categoryList)
-    //   route = _buildRoute(settings, CategoryListPage());
-    // else if (settings.name == Routes.postList)
-    //   route = _buildRoute(settings, PostListPage());
+    else if (settings.name == Routes.categoryEdit)
+      route = _buildRoute(settings, CategoryEditPage());
+    else if (settings.name == Routes.categoryList)
+      route = _buildRoute(settings, CategoryListPage());
+    else if (settings.name == Routes.postList)
+      route = _buildRoute(settings, PostListPage());
     // // else if (settings.name == Routes.postCreate)
     // //   route = _buildRoute(settings, PostEditPage());
     // else if (settings.name == Routes.postView)
     //   route = _buildRoute(settings, PostViewPage());
-    // else if (settings.name == Routes.admin)
-    //   route = _buildRoute(settings, AdminPage());
+    else if (settings.name == Routes.admin)
+      route = _buildRoute(settings, AdminPage());
     return route;
   }
 
