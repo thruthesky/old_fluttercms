@@ -217,6 +217,7 @@ service cloud.firestore {
 * Flutter 에서 Firebase 를 테스트하기 위해서는 Firebase 모듈이 장치나 에뮬레이터에서 실행되어야 함.
   * 즉, Unit test 에서는 바로 할 수 없고, mocking 통해서 해야하는데 번거로움.
 * 그래서 `settings.dart` 의 `Settings.testApp` 값이 true 이면 앱이 실행되고 코드가 수정 될 때 마다 테스트를 함.
+* [Flutterbase 테스트 코드](https://github.com/thruthesky/flutterbase/tree/master/tests)
 
 
 ### Security Rule Test
