@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttercms/flutterbase/etc/flutterbase.app.localization.dart';
+import 'package:fluttercms/flutterbase/etc/flutterbase.defines.dart';
 import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 import 'package:fluttercms/flutterbase/tests/flutterbase.test.dart';
 import 'package:fluttercms/services/app.defines.dart';
@@ -10,7 +11,15 @@ import 'package:fluttercms/services/app.router.dart';
 import 'package:fluttercms/settings.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+void main() async {
+  /// Hive 를 준비한다.
+  /// 
+  /// TODO: `Hive.initFlutter();` 코드는 반드시 여기에 위치해야 하는데, `Flutter Engine` 에서 assert 처리를 한다.
+  await Hive.initFlutter();
+  await Hive.openBox(CACHE_BOX);
   runApp(TheApp());
 }
 
