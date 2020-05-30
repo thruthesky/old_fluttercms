@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:fluttercms/flutterbase/flutterbase.app.localization.dart';
-import 'package:fluttercms/flutterbase/flutterbase.globals.dart';
+import 'package:fluttercms/flutterbase/etc/flutterbase.app.localization.dart';
+import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 import 'package:fluttercms/flutterbase/tests/flutterbase.test.dart';
 import 'package:fluttercms/services/app.defines.dart';
 import 'package:fluttercms/services/app.globals.dart';

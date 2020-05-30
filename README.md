@@ -14,7 +14,6 @@
 * 기존에는 `Firebase Functions` 를 활용하여 회원 관리 + 파이어베이스 CMS 를 만들었는데, `Functions`를 없애고 직접 `Firestore` 에 쿼리를 하므로, 보다 간편해졌다.
 
 
-
 ## Flutterbase 테스트
 
 * Flutter 에서 Firebase 를 테스트하기 위해서는 Firebase 모듈이 장치나 에뮬레이터에서 실행되어야 한다.

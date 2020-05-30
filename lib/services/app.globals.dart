@@ -7,11 +7,6 @@ import '../models//app.model.dart';
 AppModel app = AppModel();
 
 
-/// TODO: Move it to `engine globals`.
-Future open(String route, {arguments}) {
-  return AppRouter.open(app.context, route, arguments: arguments);
-}
-
 ///
 void back({arguments}) {
   Navigator.pop(app.context, arguments);

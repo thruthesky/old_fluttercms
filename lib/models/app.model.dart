@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercms/flutterbase/flutterbase.globals.dart';
+import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 
 /// 앱 모델
 ///

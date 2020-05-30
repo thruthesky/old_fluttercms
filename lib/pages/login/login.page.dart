@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercms/flutterbase/flutterbase.globals.dart';
+import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.text.dart';
 import 'package:fluttercms/flutterbase/widgets/user/flutterbase.login_form.dart';
 import 'package:fluttercms/services/app.defines.dart';
