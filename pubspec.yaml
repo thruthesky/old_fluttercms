@@ -43,6 +43,10 @@ dependencies:
   flutter_platform_widgets: ^0.32.5
 
 
+  ## Human readable time
+  time_formatter: ^1.0.0
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

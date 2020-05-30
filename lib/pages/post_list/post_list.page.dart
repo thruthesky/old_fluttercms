@@ -6,6 +6,7 @@ import 'package:fluttercms/flutterbase/widgets/flutterbase.appbar.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.post_create_action_button.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.space.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.text.dart';
+import 'package:fluttercms/flutterbase/widgets/forum/flutterbase.post_list_view.dart';
 import 'package:fluttercms/services/app.globals.dart';
 
 import '../../widgets/app.padding.dart';
@@ -96,7 +97,7 @@ class _PostListPageState extends State<PostListPage> {
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: model.posts.length,
                       itemBuilder: (context, i) {
-                        return EnginePostView(model.posts[i]);
+                        return FlutterbasePostListView(model.posts[i]);
                       },
                     ),
                     if (model.inLoading && forum.pageNo > 1) ...[
