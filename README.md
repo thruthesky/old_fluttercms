@@ -73,7 +73,7 @@ service cloud.firestore {
     // 글
     match /posts/{postId} {
       // 로그인을 했으면, 도큐먼트 생성 가능
-      allow create: if login() && toBeMyData();
+      allow create: if login() && toBeMyDocument();
 
       // 아무나 글을 읽거나 목록 할 수 있음.
       allow read: if true;
@@ -82,11 +82,11 @@ service cloud.firestore {
       // 수정은 자기 글만 가능.
       // 수정할 때에는 data 에 uid 값이 들어 올 필요 없다. 저장된 uid 가 로그인 사용자 uid 가 맞는지만 검사한다.
       // 즉, 저장된 uid 값을 없애거나 변경해서는 안된다.
-      allow update: if myData() && notUpdating('uid') && notUpdating('email');
+      allow update: if myDocument() && notUpdating('uid') && notUpdating('email');
 
 
       // 삭제는 자기 글만 가능
-      allow delete: if myData();
+      allow delete: if myDocument();
 
     }
 
@@ -108,7 +108,7 @@ service cloud.firestore {
       return request.auth.uid != null;
     }
 
-    // 필드를 변경하지 못하게하는 검사
+    // 필드를 변경하지 못하게 검사
     //
     // request data 에 field 가 없거나, 있다면, 저장되어져 있는 값과 동일해야 한다.
     // 즉, 값을 변경을 하지 못하도록 하는 체크하는 함수이다.
@@ -117,12 +117,12 @@ service cloud.firestore {
     }
 
     // 사용자의 uid 와 문서에 저장되어져 있는 uid 가 일치하면 본인의 데이터
-    function myData() {
+    function myDocument() {
       return resource.data.uid == request.auth.uid;
     }
 
     // 사용자의 uid 와 저장할 데이터의 uid 가 일치하면, 나의 데이터로 저장 될 것이다.
-    function toBeMyData() {
+    function toBeMyDocument() {
       return request.resource.data.uid == request.auth.uid;
     }
 
@@ -133,6 +133,32 @@ service cloud.firestore {
       return login() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
     }
   }
+}
+```
+
+* 참고: [권한 테스트](https://github.com/thruthesky/flutterbase-security-test)
+
+### Firestore 인덱스
+
+``` json
+{
+  "indexes": [
+    {
+      "collectionGroup": "post",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "categories",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
 }
 ```
 
