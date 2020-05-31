@@ -1,4 +1,4 @@
-import 'dart:async';
+
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -37,13 +37,13 @@ class _TheAppState extends State<TheApp> {
     ///
     /// 앱이 부팅하자 마자 게시판 카테고리로 이동하게 한다.
     /// 게시판 목록에서 작업을 할 때 편리.
-    Timer(
-      Duration(milliseconds: 100),
-      () => open(
-        Routes.postList,
-        arguments: {'id': 'discussion'},
-      ),
-    );
+    // Timer(
+    //   Duration(milliseconds: 100),
+    //   () => open(
+    //     Routes.postList,
+    //     arguments: {'id': 'discussion'},
+    //   ),
+    // );
 
     super.initState();
   }

@@ -71,7 +71,7 @@ class CreateCategoryButton extends StatelessWidget {
       onPressed: () async {
         final re = await open(Routes.categoryEdit);
         if (re != null) {
-          print('created: $re');
+          // print('created: $re');
           Provider.of<FlutterbaseCategoryListModel>(context, listen: false)
               .loadCategories();
         }
