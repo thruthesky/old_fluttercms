@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -45,15 +43,15 @@ class _TheAppState extends State<TheApp> {
     //   ),
     // );
 
+    if (kDebugMode && Settings.testApp) {
+      FlutterbaseTest();
+    }
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (kDebugMode && Settings.testApp) {
-      FlutterbaseTest();
-    }
-
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => app),
