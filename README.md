@@ -49,6 +49,7 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
+
     // 기본적으로 모든 읽기와 쓰기를 막는다.
     match /{document=**} {
       allow read: if false;
@@ -70,38 +71,92 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // 카테고리. 모든 회원이 읽을 수 있지만, 관리자만 쓰기 가능.
+    match /categories/{category} {
+      allow read: if true;
+      allow create, delete: if admin();
+      allow update: if admin() && notUpdating('id');
+    }
+
     // 글
     match /posts/{postId} {
-      // 로그인을 했으면, 도큐먼트 생성 가능
-      allow create: if login() && toBeMyDocument();
+      // 생성
+      // - 로그인을 했으면, 도큐먼트 생성 가능
+      // - 글 쓰기/수정에서 카테고리가 있어야 하며 존재 해야 함.
+      allow create: if login() && toBeMyDocument() && categoryExist();
 
       // 아무나 글을 읽거나 목록 할 수 있음.
       allow read: if true;
 
 
-      // 수정은 자기 글만 가능.
-      // 수정할 때에는 data 에 uid 값이 들어 올 필요 없다. 저장된 uid 가 로그인 사용자 uid 가 맞는지만 검사한다.
-      // 즉, 저장된 uid 값을 없애거나 변경해서는 안된다.
-      allow update: if myDocument() && notUpdating('uid') && notUpdating('email');
+      // 수정
+      // - 수정은 자기 글만 가능
+      // - uid 변경 불가
+      // - 카테고리가 존재해야 함
+      // 
+      allow update: if myDocument() && categoryExist() && notUpdating('uid');
 
 
       // 삭제는 자기 글만 가능
       allow delete: if myDocument();
 
+
+      // 코멘트
+      // - 각 글 도큐먼트 하위에 기록
+      match /comments/{comment} {
+        allow read: if true;
+
+        // 코멘트 생성 권한
+        // - 입력값: uid, order, content. `post id` 는 필요 없음.
+        allow create: if login() && toBeMyDocument() // 내 코멘트이어야 하고
+          && exists(/databases/$(database)/documents/posts/$(postId)) // 글이 존재해야 하고
+          && request.resource.data.order is string // order 가 들어와야 하고,
+          && request.resource.data.order.size() == 50; // order 가 50 글자 길이어야 한다.
+
+        // 코멘트 수정 권한
+        // - 내 코멘트이고,
+        // - `uid`, `order` 를 업데이트 하지 않아야 한다.
+        allow update: if login() && toBeMyDocument() && notUpdating('uid') && notUpdating('order');
+
+        // 코멘트 삭제 권한
+        // - 내 코멘트이면 삭제 가능
+        allow delete: if login() && myDocument();
+      }
     }
 
-    // 카테고리. 모든 회원이 읽을 수 있지만, 관리자만 쓰기 가능.
-    match /categories/{document=**} {
-      allow read: if true;
-      allow create, delete: if admin();
-      allow update: if admin() && notUpdating('id');
-    }
+
     // 설정. 모든 회원이 읽을 수 있지만, 관리자만 쓰기 가능.
     match /settings/{document=**} {
       allow read: if true;
       allow write: if admin();
     }
 
+
+
+    // // request data 의 값을 리턴하는 short cut 함수
+    // //
+    // // 예) `r('var_name')`
+    // // 
+    // //
+    // function r(prop) {
+    //   return request.resource.data[prop];
+    // }
+
+    // // request data 에 값이 있는지 검사하고, 그 값이 배열인지 검사하는 것이다.
+    // // 아래의 예제를 짧게 사용 할 수 있다.
+    // // 짧은 예) isList('categories')
+    // // 긴 예) requestHas('categories') && r('categories') is list
+    // function isList(prop) {
+    //   return requestHas(prop) && r(prop) is list;
+    // }
+
+    // // request data 에 값이 있는지 검사하고, 그 값이 문자열인지 검사하는 것이다.
+    // // 아래의 예제를 짧게 사용 할 수 있다.
+    // // 짧은 예) iString('category')
+    // // 긴 예) requestHas('category') && r('category') is string
+    // function isString(prop) {
+    //   return requestHas(prop) && r(prop) is string;
+    // }
 
     // 로그인을 했는지 검사
     function login() {
@@ -115,6 +170,11 @@ service cloud.firestore {
     function notUpdating(field) {
       return !(field in request.resource.data) || resource.data[field] == request.resource.data[field];
     }
+
+    // request data 에 특정 field 가 있는지 검사한다.
+    // function requestHas(field) {
+    //   return field in request.resource.data;
+    // }
 
     // 사용자의 uid 와 문서에 저장되어져 있는 uid 가 일치하면 본인의 데이터
     function myDocument() {
@@ -132,7 +192,21 @@ service cloud.firestore {
     function admin() {
       return login() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
     }
+    // 카테고리가 존재하는지 검사한다.
+    // - `category` 에 category id 값이 들어와야 한다.
+    function categoryExist() {
+      return exists(/databases/$(database)/documents/categories/$(request.resource.data.category));
+    }
+
+    // 게시글이 존재하는지 검사한다.
+    // - `postId` 에 post id 값이 들어와야 한다.
+    function postExist() {
+      return exists(/databases/$(database)/documents/posts/$(request.resource.data.postId));
+    }
+
   }
+
+
 }
 ```
 
@@ -144,12 +218,12 @@ service cloud.firestore {
 {
   "indexes": [
     {
-      "collectionGroup": "post",
+      "collectionGroup": "posts",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "categories",
-          "arrayConfig": "CONTAINS"
+          "fieldPath": "category",
+          "order": "ASCENDING"
         },
         {
           "fieldPath": "createdAt",
