@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 import 'package:fluttercms/flutterbase/models/flutterbase.forum_list.model.dart';
+import 'package:fluttercms/flutterbase/models/flutterbase.post.model.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.appbar.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.post_create_action_button.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.space.dart';
@@ -24,11 +25,10 @@ class PostListPage extends StatefulWidget {
 }
 
 class _PostListPageState extends State<PostListPage> {
-
   FlutterbaseForumModel forum = FlutterbaseForumModel();
   @override
   void initState() {
-    print('_PostListPageState::initState()');
+    // print('_PostListPageState::initState()');
     Timer(
       Duration(milliseconds: 100),
       () {
@@ -39,7 +39,7 @@ class _PostListPageState extends State<PostListPage> {
           cacheKey: 'forum-list-' + _args['id'],
           limit: 4,
           onLoad: (posts) {
-            print('loaded by firestore.');
+            // print('loaded by firestore.');
           },
         );
       },
@@ -84,8 +84,8 @@ class _PostListPageState extends State<PostListPage> {
               builder: (context, model, child) {
                 return Column(
                   children: <Widget>[
+                    /// 첫 페이지 로더는 맨 위에만
                     if (model.inLoading && forum.pageNo == 1)
-                      /// 첫 페이지 로더는 맨 위에만
                       PlatformCircularProgressIndicator(),
                     ListView.builder(
                       primary: false,
@@ -93,7 +93,17 @@ class _PostListPageState extends State<PostListPage> {
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: model.posts.length,
                       itemBuilder: (context, i) {
-                        return FlutterbasePostListView(model.posts[i]);
+                        // print('4: $i');
+                        final postModel =
+                            FlutterbasePostModel(post: model.posts[i]);
+                        print(postModel);
+                        return MultiProvider(
+                          providers: [
+                            ChangeNotifierProvider(
+                                create: (context) => postModel),
+                          ],
+                          child: FlutterbasePostListView(model.posts[i]),
+                        );
                       },
                     ),
                     if (model.inLoading && forum.pageNo > 1) ...[
