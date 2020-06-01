@@ -96,7 +96,7 @@ class _PostListPageState extends State<PostListPage> {
                         // print('4: $i');
                         final postModel =
                             FlutterbasePostModel(post: model.posts[i]);
-                        print(postModel);
+                        // print(postModel);
                         return MultiProvider(
                           providers: [
                             ChangeNotifierProvider(

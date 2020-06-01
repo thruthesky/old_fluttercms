@@ -104,7 +104,7 @@ class _CategoryEditPageState extends State<CategoryEditPage> {
                 ),
               ),
               FlutterbaseButton(
-                loader: inLoading,
+                showSpinner: inLoading,
                 text: isCreate ? CREATE_CATEGORY : UPDATE_CATEGORY,
                 onPressed: () async {
                   setState(() => inLoading = true);
@@ -117,14 +117,14 @@ class _CategoryEditPageState extends State<CategoryEditPage> {
                     back(arguments: _category);
                   } catch (e) {
                     setState(() => inLoading = false);
-                    print(e);
+                    // print(e);
                     alert(e);
                   }
                 },
               ),
               if (isUpdate)
                 FlutterbaseButton(
-                  loader: inDelete,
+                  showSpinner: inDelete,
                   text: DELETE_CATEGORY,
                   onPressed: () async {
                     if (inDelete) return;
@@ -137,8 +137,8 @@ class _CategoryEditPageState extends State<CategoryEditPage> {
                         setState(() => inDelete = true);
                         try {
                           var re = await fb.categoryDelete(this.category.id);
-                          print('re: ');
-                          print(re);
+                          // print('re: ');
+                          // print(re);
                           back(arguments: re);
                         } catch (e) {
                           alert(e);

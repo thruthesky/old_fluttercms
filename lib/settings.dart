@@ -1,3 +1,3 @@
 class Settings {
-  static bool testApp = true;
+  static bool testApp = false;
 }

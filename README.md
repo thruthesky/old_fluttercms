@@ -302,3 +302,16 @@ service cloud.firestore {
   * `Firestore Security Test`에서는 mocking 말고는 방법이 없습니다. 그래서 mocking 으로 권한 테스트합니다.
 
 
+
+
+## Spinner
+
+* 처리 중 spinner 보여 줄 때, state 내에서 변수 정의 하고, state 업데이트 하는 등 번거로운 점이 있다.
+* spinner 변수를 모델이나 해당 객체(글 또는 코멘트 도큐먼트)에 저장해서 처리를 한다.
+* 즉, 해당 작업을 처리하는 함수 안에서 표시를 하도록 해서, 개벌 클래스 내에서는 코드를 줄인다.
+
+예를 들어
+
+* showSpinner: inDeleting 과 같이 true, false 에 따라 spinner 를 보여준다면,
+* fb.delete(post); 와 같이 호출 할 때,
+* delete() 안에서 post.inDeleting = true 하고, 작업이 끝나면 post.inDeleting = false 한다.

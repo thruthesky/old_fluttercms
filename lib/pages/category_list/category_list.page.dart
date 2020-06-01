@@ -45,7 +45,7 @@ class CategoryListPage extends StatelessWidget {
                               Routes.categoryEdit,
                               arguments: {'category': cat},
                             );
-                            print('category edited or delete');
+                            // print('category edited or delete');
                             await model.loadCategories();
                           } catch (e) {
                             alert(e);
