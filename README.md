@@ -315,3 +315,17 @@ service cloud.firestore {
 * showSpinner: inDeleting 과 같이 true, false 에 따라 spinner 를 보여준다면,
 * fb.delete(post); 와 같이 호출 할 때,
 * delete() 안에서 post.inDeleting = true 하고, 작업이 끝나면 post.inDeleting = false 한다.
+
+
+## 삭제된 글 처리
+
+* 삭제 된 글을 삭제해도 글은 그냥 삭제가 된 것이다.
+* 또한 삭제된 글을 수정해도 이미 deletedAt 에 값이 있기 때문에 이미 삭제된 것이다.
+
+* 삭제 된 글을 삭제, 추천 할 때에는 해당 작업 처리 함수에서 에러를 throw 하도록 한다.
+
+* 하지만, 삭제된 글은 수정 할 때에는, 수정 작업 함수가, 사용자가 글을 다 수정한 후, 버튼을 클릭하면 발생하기 때문에, 사용자가 불편함을 겪게 된다. 따라서
+  * 수정 버튼을 없애거나
+  * disable 시키거나
+  * 또는 최소한 삭제가 되었으면 수정 버튼을 클릭 할 때 삭되었다고 알려준다.
+
