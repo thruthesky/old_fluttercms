@@ -49,6 +49,20 @@ dependencies:
   ## 유틸리티 함수
   validators: ^2.0.0+1
 
+
+
+  ## `Firebase Firestore` 에 파일 업로드를 위한 패키지
+  firebase_storage: ^3.1.6
+
+  ## 사진을 찍거나 갤러리에서 가져온다.
+  image_picker: ^0.6.7
+
+  ## 사진을 찍거나 갤러리에서 가져와서 사진의 크기를 작게한다.
+  flutter_image_compress: ^0.6.8
+
+  ## iOS 에서 사진을 찍을 권한을 물어본다.
+  permission_handler: ^5.0.0+hotfix.8
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
