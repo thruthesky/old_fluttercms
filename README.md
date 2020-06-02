@@ -80,24 +80,52 @@ service cloud.firestore {
 
     // 글
     match /posts/{postId} {
-      // 생성
-      // - 로그인을 했으면, 도큐먼트 생성 가능
-      // - 글 쓰기/수정에서 카테고리가 있어야 하며 존재 해야 함.
-      allow create: if login() && toBeMyDocument() && categoryExist();
-
       // 아무나 글을 읽거나 목록 할 수 있음.
       allow read: if true;
 
 
+      // 생성
+      // - 로그인을 했으면, 도큐먼트 생성 가능
+      // - 글 쓰기/수정에서 카테고리가 있어야 하며 존재 해야 함.
+      allow create: if login()
+        && toBeMyDocument()
+        && categoryExist()
+        && mustBeZero('like')
+        && mustBeZero('dislike');
+
+
+
       // 수정
+      //
+      // 필수 입력: 없음??
+      
+      // 
+      // 
       // - 수정은 자기 글만 가능
       // - uid 변경 불가
       // - 카테고리가 존재해야 함
-      // 
-      allow update: if myDocument() && categoryExist() && notUpdating('uid');
+      //
+      // - 다른 사람이 내 글을 수정하는 경우, 오직 'like' 와 'dislke' 만 수정 가능하다. 
+      // - 자신 뿐만아니라 타인이 vote 할 수 있다.
+      allow update: if
+      (
+        myDocument() 
+        && categoryExist()
+        && notUpdating('uid')
+      )
+      || 
+      ( 
+        // 본인 뿐만 아니라 타인도 이 rule 로 vote
+        onlyUpdating(['like', 'dislike']) 
+        && updatingByOne('like') 
+        && updatingByOne('dislike')
+        )
+      ;
 
 
       // 삭제는 자기 글만 가능
+      //
+      // 필수 입력: 없음.
       allow delete: if myDocument();
 
 
@@ -107,16 +135,35 @@ service cloud.firestore {
         allow read: if true;
 
         // 코멘트 생성 권한
-        // - 입력값: uid, order, content. `post id` 는 필요 없음.
+        // - 입력값: uid, content, depth, order. `post id` 는 필요 없음.
         allow create: if login() && toBeMyDocument() // 내 코멘트이어야 하고
           && exists(/databases/$(database)/documents/posts/$(postId)) // 글이 존재해야 하고
-          && request.resource.data.order is string // order 가 들어와야 하고,
-          && request.resource.data.order.size() == 50; // order 가 50 글자 길이어야 한다.
+          && request.resource.data.order is string // order 가 문자열로 들어와야 하고,
+          && request.resource.data.order.size() == 71 // order 가 71 글자 길이어야 한다.
+          && request.resource.data.depth is number // order 가 number 로 들어와야 하고,
+          && request.resource.data.depth > 0 && request.resource.data.depth <= 12 // 1 부터 12 사이의 값이어야 한다.
+          && mustBeZero('like') && mustBeZero('dislike')
+          ;
 
         // 코멘트 수정 권한
         // - 내 코멘트이고,
         // - `uid`, `order` 를 업데이트 하지 않아야 한다.
-        allow update: if login() && toBeMyDocument() && notUpdating('uid') && notUpdating('order');
+        // - 자신 뿐만아니라 타인이 vote 할 수 있다.
+        allow update: if
+          (
+            login()
+            && toBeMyDocument() 
+            && notUpdating('uid')
+            && notUpdating('order')
+          )
+          ||
+          (
+          // 본인 뿐만 아니라 타인도 이 rule 로 vote
+            onlyUpdating(['like', 'dislike'])
+            && updatingByOne('like')
+            && updatingByOne('dislike')
+          )
+          ;
 
         // 코멘트 삭제 권한
         // - 내 코멘트이면 삭제 가능
@@ -124,6 +171,16 @@ service cloud.firestore {
       }
     }
 
+
+
+    // 추천/비추천
+    match /likes/{like} {
+      allow read: if login() && myDocument();
+      allow create: if login() && toBeMyDocument() && request.resource.data.keys().hasOnly(['uid', 'id', 'vote']);
+      allow update: if login() && myDocument() && notUpdating('uid') && request.resource.data.keys().hasOnly(['uid', 'id', 'vote']);
+      allow delete: if login() && myDocument();
+    }
+    
 
     // 설정. 모든 회원이 읽을 수 있지만, 관리자만 쓰기 가능.
     match /settings/{document=**} {
@@ -133,30 +190,6 @@ service cloud.firestore {
 
 
 
-    // // request data 의 값을 리턴하는 short cut 함수
-    // //
-    // // 예) `r('var_name')`
-    // // 
-    // //
-    // function r(prop) {
-    //   return request.resource.data[prop];
-    // }
-
-    // // request data 에 값이 있는지 검사하고, 그 값이 배열인지 검사하는 것이다.
-    // // 아래의 예제를 짧게 사용 할 수 있다.
-    // // 짧은 예) isList('categories')
-    // // 긴 예) requestHas('categories') && r('categories') is list
-    // function isList(prop) {
-    //   return requestHas(prop) && r(prop) is list;
-    // }
-
-    // // request data 에 값이 있는지 검사하고, 그 값이 문자열인지 검사하는 것이다.
-    // // 아래의 예제를 짧게 사용 할 수 있다.
-    // // 짧은 예) iString('category')
-    // // 긴 예) requestHas('category') && r('category') is string
-    // function isString(prop) {
-    //   return requestHas(prop) && r(prop) is string;
-    // }
 
     // 로그인을 했는지 검사
     function login() {
@@ -198,11 +231,38 @@ service cloud.firestore {
       return exists(/databases/$(database)/documents/categories/$(request.resource.data.category));
     }
 
-    // 게시글이 존재하는지 검사한다.
-    // - `postId` 에 post id 값이 들어와야 한다.
-    function postExist() {
-      return exists(/databases/$(database)/documents/posts/$(request.resource.data.postId));
+    // 특정 값만 업데이트하는지 확인
+    //
+    // 예) onlyUpdating(['like', 'dislike']);
+    function onlyUpdating(fields) {
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly(fields);
     }
+
+    // 특정 필드에 대한 증감 값 확인
+    //
+    // `field` 가 숫자인지 확인
+    // `field` 가 업데이트되지 않거나 또는 최대 1 증가, 최소 1 감소하는지 확인.
+    function updatingByOne(field) {
+      return request.resource.data[field] is int
+        &&
+        ( 
+          request.resource.data[field] == resource.data[field] // 값이 변하지 않거나
+          ||
+          request.resource.data[field] == resource.data[field] + 1 // 값이  1 증가 하거나
+          ||
+          request.resource.data[field] == resource.data[field] - 1 // 값이  1 감소 하거나
+        );
+    }
+
+    function mustBeZero(field) {
+      return request.resource.data[field] is int && request.resource.data[field] == 0;
+    }
+
+    // 게시글이 존재하는지 검사한다.
+    // 현재 액세스하려는 post document 가 실제로 존재하는 것인지 검사
+    // function postExist() {
+    //   return exists(/databases/$(database)/documents/posts/$(request.resource.data.postId));
+    // }
 
   }
 
@@ -329,3 +389,8 @@ service cloud.firestore {
   * disable 시키거나
   * 또는 최소한 삭제가 되었으면 수정 버튼을 클릭 할 때 삭되었다고 알려준다.
 
+
+## 추천/비추천
+
+* 도큐먼트를 생성할 때, like 와 dislike 의 값을 0 으로 초기화 해야 한다. 그렇지 않으면, security rule 이나 기타 작업에서 번거로운 점이 많다.
+  * security rules 에서 rule 로 정한다.

@@ -46,6 +46,8 @@ dependencies:
   ## Human readable time
   time_formatter: ^1.0.0
 
+  ## 유틸리티 함수
+  validators: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:
