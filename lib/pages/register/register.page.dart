@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercms/flutterbase/etc/flutterbase.defines.dart';
 import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.appbar.dart';
 import 'package:fluttercms/flutterbase/widgets/user/flutterbase.register_form.dart';
@@ -16,7 +17,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: FlutterbaseAppBar(
-        title: t('Register'),
+        title: t(fb.loggedIn ? PROFILE_UPDATE_TITLE : REGISTER_TITLE),
         onTapUserPhoto: () =>
             open(fb.loggedIn ? Routes.register : Routes.login),
       ),

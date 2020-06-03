@@ -38,9 +38,6 @@ class _PostListPageState extends State<PostListPage> {
           id: _args['id'],
           cacheKey: 'forum-list-' + _args['id'],
           limit: 4,
-          onLoad: (posts) {
-            // print('loaded by firestore.');
-          },
         );
       },
     );

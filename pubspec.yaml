@@ -63,6 +63,10 @@ dependencies:
   ## iOS 에서 사진을 찍을 권한을 물어본다.
   permission_handler: ^5.0.0+hotfix.8
 
+  ## Font Awesome Icons
+  font_awesome_flutter: ^8.8.1
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercms/flutterbase/etc/flutterbase.defines.dart';
 import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.appbar.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.post_create_action_button.dart';
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: FlutterbaseAppBar(
-          title: t('title'),
+          title: t(APP_TITLE),
           actions: FlutterbasePostCreateActionButton(
             // id: _args['id'],
             // forum: forum,

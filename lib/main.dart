@@ -37,13 +37,22 @@ class _TheAppState extends State<TheApp> {
     ///
     /// 앱이 부팅하자 마자 게시판 카테고리로 이동하게 한다.
     /// 게시판 목록에서 작업을 할 때 편리.
-    Timer(
-      Duration(milliseconds: 100),
-      () => open(
-        Routes.postList,
-        arguments: {'id': 'discussion'},
-      ),
-    );
+    // Timer(
+    //   Duration(milliseconds: 100),
+    //   () => open(
+    //     Routes.postList,
+    //     arguments: {'id': 'discussion'},
+    //   ),
+    // );
+
+    // 테스트 용도
+    // 회원 로그인을 하면, 회원 정보 창을 연다.
+    // fb.auth.onAuthStateChanged.listen((u) async {
+    //   if ( u != null ) {
+    //     open(Routes.register);
+    //   }
+    // });
+
 
     if (kDebugMode && Settings.testApp) {
       FlutterbaseTest();
@@ -60,11 +69,15 @@ class _TheAppState extends State<TheApp> {
         ChangeNotifierProvider(create: (context) => fb),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
-        initialRoute: Routes.home,
+        title: '플러터 커뮤니티 앱',
+        // initialRoute: Routes.home,
+        initialRoute: Routes.login,
         // initialRoute: Routes.register,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          brightness: Brightness.light,
+          primarySwatch: Colors.indigo,
+          // primarySwatch: Colors.yellow
+          // primarySwatch: Colors.amber, // background is amber. object should be black.
         ),
         onGenerateRoute: AppRouter.generate,
         navigatorKey: fb.navigatorKey,
