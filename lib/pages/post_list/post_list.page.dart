@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
-import 'package:fluttercms/flutterbase/models/flutterbase.forum_list.model.dart';
-import 'package:fluttercms/flutterbase/models/flutterbase.post.model.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.appbar.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.post_create_action_button.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.space.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.text.dart';
-import 'package:fluttercms/flutterbase/widgets/forum/flutterbase.post_list_view.dart';
+import '../../flutterbase/etc/flutterbase.globals.dart';
+import '../../flutterbase/models/flutterbase.forum_list.model.dart';
+import '../../flutterbase/models/flutterbase.post.model.dart';
+import '../../flutterbase/widgets/flutterbase.appbar.dart';
+import '../../flutterbase/widgets/flutterbase.post_create_action_button.dart';
+import '../../flutterbase/widgets/flutterbase.space.dart';
+import '../../flutterbase/widgets/flutterbase.text.dart';
+import '../../flutterbase/widgets/forum/flutterbase.post_list_view.dart';
 import 'package:fluttercms/services/app.globals.dart';
 
 import '../../widgets/app.padding.dart';

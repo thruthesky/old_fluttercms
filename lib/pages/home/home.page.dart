@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercms/flutterbase/etc/flutterbase.defines.dart';
-import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.appbar.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.post_create_action_button.dart';
+import '../../flutterbase/etc/flutterbase.defines.dart';
+import '../../flutterbase/etc/flutterbase.globals.dart';
+import '../../flutterbase/widgets/flutterbase.appbar.dart';
+import '../../flutterbase/widgets/flutterbase.post_create_action_button.dart';
 import 'package:fluttercms/services/app.defines.dart';
 import 'package:fluttercms/widgets/app.drawer.dart';
 

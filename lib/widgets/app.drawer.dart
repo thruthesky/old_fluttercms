@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:fluttercms/flutterbase/etc/flutterbase.defines.dart';
-import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.text.dart';
+import '../flutterbase/etc/flutterbase.defines.dart';
+import '../flutterbase/etc/flutterbase.globals.dart';
+import '../flutterbase/widgets/flutterbase.text.dart';
 import 'package:fluttercms/services/app.colors.dart';
 import 'package:fluttercms/services/app.defines.dart';
 import 'package:fluttercms/services/app.globals.dart';
