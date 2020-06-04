@@ -90,10 +90,8 @@ class _PostListPageState extends State<PostListPage> {
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: model.posts.length,
                       itemBuilder: (context, i) {
-                        // print('4: $i');
                         final postModel =
                             FlutterbasePostModel(post: model.posts[i]);
-                        // print(postModel);
                         return MultiProvider(
                           providers: [
                             ChangeNotifierProvider(
