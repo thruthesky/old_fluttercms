@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 import '../../flutterbase/widgets/forum/flutterbase.latest_posts.dart';
 import '../../flutterbase/etc/flutterbase.defines.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
@@ -44,25 +45,27 @@ class _HomePageState extends State<HomePage> {
             open(fb.loggedIn ? Routes.register : Routes.login),
       ),
       endDrawer: AppDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FlutterbaseLatestPosts(),
-            // RaisedButton(
-            //   onPressed: () => open(Routes.categoryList),
-            //   child: Text('Category List'),
-            // ),
-            // RaisedButton(
-            //   onPressed: () => open(Routes.categoryEdit),
-            //   child: Text('Category Edit'),
-            // ),
-            // RaisedButton(
-            //   onPressed: () =>
-            //       open(Routes.postList, arguments: {'id': 'discussion'}),
-            //   child: Text('Discussoin'),
-            // ),
-          ],
+      body: FlutterbasePagePadding(
+              child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlutterbaseLatestPosts( route: Routes.postView,  ),
+              // RaisedButton(
+              //   onPressed: () => open(Routes.categoryList),
+              //   child: Text('Category List'),
+              // ),
+              // RaisedButton(
+              //   onPressed: () => open(Routes.categoryEdit),
+              //   child: Text('Category Edit'),
+              // ),
+              // RaisedButton(
+              //   onPressed: () =>
+              //       open(Routes.postList, arguments: {'id': 'discussion'}),
+              //   child: Text('Discussoin'),
+              // ),
+            ],
+          ),
         ),
       ),
     );
