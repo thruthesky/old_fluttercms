@@ -7,6 +7,7 @@ import 'package:fluttercms/flutterbase/etc/flutterbase.app.localization.dart';
 import 'package:fluttercms/flutterbase/etc/flutterbase.defines.dart';
 import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 import 'package:fluttercms/flutterbase/tests/flutterbase.test.dart';
+import 'package:fluttercms/flutterbase/widgets/forum/flutterbase.post_edit_form.dart';
 import 'package:fluttercms/services/app.defines.dart';
 import 'package:fluttercms/services/app.globals.dart';
 import 'package:fluttercms/services/app.router.dart';
@@ -37,13 +38,15 @@ class _TheAppState extends State<TheApp> {
     ///
     /// 앱이 부팅하자 마자 게시판 카테고리로 이동하게 한다.
     /// 게시판 목록에서 작업을 할 때 편리.
-    // Timer(
-    //   Duration(milliseconds: 100),
-    //   () => open(
-    //     Routes.postList,
-    //     arguments: {'id': 'discussion'},
-    //   ),
-    // );
+    Timer(Duration(milliseconds: 100), () async {
+      // await openForumBox(
+      //   FlutterbasePostEditForm(id: 'qna'),
+      // );
+      open(
+        Routes.postList,
+        arguments: {'id': 'discussion'},
+      );
+    });
 
     // 테스트 용도
     // 회원 로그인을 하면, 회원 정보 창을 연다.
@@ -52,7 +55,6 @@ class _TheAppState extends State<TheApp> {
     //     open(Routes.register);
     //   }
     // });
-
 
     if (kDebugMode && Settings.testApp) {
       FlutterbaseTest();
@@ -70,8 +72,8 @@ class _TheAppState extends State<TheApp> {
       ],
       child: MaterialApp(
         title: '플러터 커뮤니티 앱',
-        // initialRoute: Routes.home,
-        initialRoute: Routes.login,
+        initialRoute: Routes.home,
+        // initialRoute: Routes.login,
         // initialRoute: Routes.register,
         theme: ThemeData(
           brightness: Brightness.light,

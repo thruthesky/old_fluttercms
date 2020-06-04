@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:fluttercms/flutterbase/etc/flutterbase.defines.dart';
 import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 import 'package:fluttercms/flutterbase/widgets/flutterbase.text.dart';
 import 'package:fluttercms/services/app.colors.dart';
@@ -47,7 +48,7 @@ class _AppDrawerState extends State<AppDrawer> {
               padding: EdgeInsets.only(top: 20, left: 12),
               decoration: BoxDecoration(color: AppColor.primaryColor),
               child: T(
-                'appName',
+                APP_TITLE,
                 style: TextStyle(color: AppColor.white, fontSize: 18),
               ),
             ),
@@ -61,7 +62,7 @@ class _AppDrawerState extends State<AppDrawer> {
           ),
           DrawerDivider(title: t('Member')),
           MenuItem(
-            title: t(fb.loggedIn ? 'Profile' : 'Register'),
+            title: t(fb.loggedIn ? PROFILE_UPDATE_TITLE : REGISTER_TITLE),
             icon: Icons.person_add,
             onTap: () {
               AppRouter.open(context, Routes.register);
@@ -69,7 +70,7 @@ class _AppDrawerState extends State<AppDrawer> {
           ),
           if (fb.notLoggedIn)
             MenuItem(
-              title: t('Login'),
+              title: t('login'),
               icon: Icons.arrow_forward,
               onTap: () {
                 AppRouter.open(context, Routes.login);
@@ -78,14 +79,14 @@ class _AppDrawerState extends State<AppDrawer> {
 
           if (fb.loggedIn)
             MenuItem(
-              title: t('Logout'),
+              title: t('logout'),
               icon: Icons.reply,
               onTap: () async {
                 await fb.logout();
                 AppRouter.open(context, Routes.home);
               },
             ),
-          DrawerDivider(title: t('Forum')),
+          DrawerDivider(title: t('forum')),
           MenuItem(
             title: t('discussion'),
             icon: Icons.chat_bubble,
@@ -95,21 +96,21 @@ class _AppDrawerState extends State<AppDrawer> {
           ),
           MenuItem(
             title: t('qna'),
-            icon: Icons.chat_bubble_outline,
+            icon: Icons.live_help,
             onTap: () {
               open(Routes.postList, arguments: {'id': 'qna'});
             },
           ),
           MenuItem(
             title: t('새소식'),
-            icon: Icons.chat_bubble_outline,
+            icon: Icons.fiber_new,
             onTap: () {
               open(Routes.postList, arguments: {'id': 'news'});
             },
           ),
           MenuItem(
             title: t('정보 공유'),
-            icon: Icons.chat_bubble_outline,
+            icon: Icons.screen_share,
             onTap: () {
               open(Routes.postList, arguments: {'id': 'share'});
             },
