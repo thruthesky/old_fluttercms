@@ -4,8 +4,8 @@ import '../../flutterbase/etc/flutterbase.category.helper.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/models/flutterbase.category_list.model.dart';
 import '../../flutterbase/widgets/flutterbase.text.dart';
-import 'package:fluttercms/services/app.defines.dart';
-import 'package:fluttercms/widgets/app.drawer.dart';
+import '../../services/app.defines.dart';
+import '../../widgets/app.drawer.dart';
 import 'package:provider/provider.dart';
 
 class CategoryListPage extends StatelessWidget {

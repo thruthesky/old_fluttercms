@@ -5,10 +5,10 @@ import '../../flutterbase/etc/flutterbase.defines.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/widgets/flutterbase.button.dart';
 import '../../flutterbase/widgets/flutterbase.text.dart';
-import 'package:fluttercms/services/app.globals.dart';
-import 'package:fluttercms/services/app.space.dart';
-import 'package:fluttercms/widgets/app.drawer.dart';
-import 'package:fluttercms/widgets/app.padding.dart';
+import '../../services/app.globals.dart';
+import '../../services/app.space.dart';
+import '../../widgets/app.drawer.dart';
+import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 
 class CategoryEditPage extends StatefulWidget {
   @override
@@ -71,7 +71,7 @@ class _CategoryEditPageState extends State<CategoryEditPage> {
         title: T(isCreate ? category?.id ?? '' : 'category create'),
       ),
       endDrawer: AppDrawer(),
-      body: AppPadding(
+      body: FlutterbasePagePadding(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -1,13 +1,13 @@
 // import '../pages/post_edit/post.edit.page.dart';
 
-import 'package:fluttercms/pages/admin/admin.page.dart';
-import 'package:fluttercms/pages/category_edit/category_edit.page.dart';
-import 'package:fluttercms/pages/category_list/category_list.page.dart';
-import 'package:fluttercms/pages/home/home.page.dart';
-import 'package:fluttercms/pages/login/login.page.dart';
-import 'package:fluttercms/pages/post_list/post_list.page.dart';
-import 'package:fluttercms/pages/register/register.page.dart';
-import 'package:fluttercms/services/app.globals.dart';
+import '../pages/admin/admin.page.dart';
+import '../pages/category_edit/category_edit.page.dart';
+import '../pages/category_list/category_list.page.dart';
+import '../pages/home/home.page.dart';
+import '../pages/login/login.page.dart';
+import '../pages/post_list/post_list.page.dart';
+import '../pages/register/register.page.dart';
+import '../services/app.globals.dart';
 
 import '../services/app.defines.dart';
 import 'package:flutter/material.dart';

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/widgets/flutterbase.text.dart';
 import '../../flutterbase/widgets/user/flutterbase.login_form.dart';
-import 'package:fluttercms/services/app.defines.dart';
-import 'package:fluttercms/widgets/app.drawer.dart';
-import 'package:fluttercms/widgets/app.padding.dart';
+import '../../services/app.defines.dart';
+import '../../widgets/app.drawer.dart';
+import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
         title: T('login page title'),
       ),
       endDrawer: AppDrawer(),
-      body: AppPadding(
+      body: FlutterbasePagePadding(
         child: FlutterbaseLoginForm(
           onLogin: (user) => open(Routes.home),
           onError: alert,

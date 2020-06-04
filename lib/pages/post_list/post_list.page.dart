@@ -8,7 +8,7 @@ import '../../flutterbase/widgets/flutterbase.post_create_action_button.dart';
 import '../../flutterbase/widgets/flutterbase.space.dart';
 import '../../flutterbase/widgets/flutterbase.text.dart';
 import '../../flutterbase/widgets/forum/flutterbase.post_list_view.dart';
-import 'package:fluttercms/services/app.globals.dart';
+import '../../services/app.globals.dart';
 
 import '../../widgets/app.padding.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +74,7 @@ class _PostListPageState extends State<PostListPage> {
               open(fb.loggedIn ? Routes.register : Routes.login),
         ),
         endDrawer: AppDrawer(),
-        body: AppPadding(
+        body: FlutterbasePagePadding(
           child: SingleChildScrollView(
             controller: forum.scrollController,
             child: Consumer<FlutterbaseForumModel>(
