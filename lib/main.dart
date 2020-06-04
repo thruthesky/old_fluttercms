@@ -7,7 +7,6 @@ import 'package:fluttercms/flutterbase/etc/flutterbase.app.localization.dart';
 import 'package:fluttercms/flutterbase/etc/flutterbase.defines.dart';
 import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
 import 'package:fluttercms/flutterbase/tests/flutterbase.test.dart';
-import 'package:fluttercms/flutterbase/widgets/forum/flutterbase.post_edit_form.dart';
 import 'package:fluttercms/services/app.defines.dart';
 import 'package:fluttercms/services/app.globals.dart';
 import 'package:fluttercms/services/app.router.dart';

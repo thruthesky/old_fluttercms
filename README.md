@@ -33,8 +33,8 @@
 
 
 * 현재 Git repo 를 clone 또는 fork 해서 로컬 머신에서 테스트한다.
-  * `git clone https://github.com/thruthesky/fluttercms`
-  * `cd fluttercms`
+  * `git clone https://github.com/thruthesky/fluttercms [project_name]`
+  * `cd project_name`
   * `git submodule update --init`
   * `git submodule foreach git checkout master`
 
