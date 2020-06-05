@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AppPadding extends StatelessWidget {
-  AppPadding({@required this.child});
+class FlutterbasePagePadding extends StatelessWidget {
+  FlutterbasePagePadding({@required this.child});
   final Widget child;
   @override
   Widget build(BuildContext context) {

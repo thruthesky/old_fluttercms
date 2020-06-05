@@ -38,6 +38,12 @@
   * `git submodule update --init`
   * `git submodule foreach git checkout master`
 
+* 경로 변경
+  * `package:fluttercms` 를 `package:[project_name]` 으로 변경을 한다.
+    * 특히, `lib/models/app.model.dart` 에서 `../flutterbase/etc/flutterbase.globals.dart` 와 같이 relative path 로 지정하면 에러가 난다.
+
+
+
 
 ### Firestore 권한 지정
 
@@ -316,8 +322,6 @@ service cloud.firestore {
   * cd ios
   * pod install
 
-<!-- * `Firebase Stroage` 의 folder path 를 복사해서 `lib/settings.dart` 의 `storageLink` 에 집어 넣는다.
-  * `lib/settings.dart` 파일이 존재하지 않으면, `lib/settings.example.dart` 를 `lib/settings.dart`로 복사해서 수정하면 된다. -->
 * 앱을 실행한다.
 * 관리자 이메일로 로그인을 한다.
 * 카테고리에

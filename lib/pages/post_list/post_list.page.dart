@@ -1,14 +1,14 @@
 import 'dart:async';
 
-import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
-import 'package:fluttercms/flutterbase/models/flutterbase.forum_list.model.dart';
-import 'package:fluttercms/flutterbase/models/flutterbase.post.model.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.appbar.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.post_create_action_button.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.space.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.text.dart';
-import 'package:fluttercms/flutterbase/widgets/forum/flutterbase.post_list_view.dart';
-import 'package:fluttercms/services/app.globals.dart';
+import '../../flutterbase/etc/flutterbase.globals.dart';
+import '../../flutterbase/models/flutterbase.forum_list.model.dart';
+import '../../flutterbase/models/flutterbase.post.model.dart';
+import '../../flutterbase/widgets/flutterbase.appbar.dart';
+import '../../flutterbase/widgets/flutterbase.post_create_action_button.dart';
+import '../../flutterbase/widgets/flutterbase.space.dart';
+import '../../flutterbase/widgets/flutterbase.text.dart';
+import '../../flutterbase/widgets/forum/flutterbase.post_list_view.dart';
+import '../../services/app.globals.dart';
 
 import '../../widgets/app.padding.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ class _PostListPageState extends State<PostListPage> {
         forum.init(
           id: _args['id'],
           cacheKey: 'forum-list-' + _args['id'],
-          limit: 4,
+          limit: 10,
         );
       },
     );
@@ -74,7 +74,7 @@ class _PostListPageState extends State<PostListPage> {
               open(fb.loggedIn ? Routes.register : Routes.login),
         ),
         endDrawer: AppDrawer(),
-        body: AppPadding(
+        body: FlutterbasePagePadding(
           child: SingleChildScrollView(
             controller: forum.scrollController,
             child: Consumer<FlutterbaseForumModel>(
@@ -90,10 +90,8 @@ class _PostListPageState extends State<PostListPage> {
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: model.posts.length,
                       itemBuilder: (context, i) {
-                        // print('4: $i');
                         final postModel =
                             FlutterbasePostModel(post: model.posts[i]);
-                        // print(postModel);
                         return MultiProvider(
                           providers: [
                             ChangeNotifierProvider(

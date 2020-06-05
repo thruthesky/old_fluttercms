@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:fluttercms/flutterbase/etc/flutterbase.category.helper.dart';
-import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
-import 'package:fluttercms/flutterbase/models/flutterbase.category_list.model.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.text.dart';
-import 'package:fluttercms/services/app.defines.dart';
-import 'package:fluttercms/widgets/app.drawer.dart';
+import '../../flutterbase/etc/flutterbase.category.helper.dart';
+import '../../flutterbase/etc/flutterbase.globals.dart';
+import '../../flutterbase/models/flutterbase.category_list.model.dart';
+import '../../flutterbase/widgets/flutterbase.text.dart';
+import '../../services/app.defines.dart';
+import '../../widgets/app.drawer.dart';
 import 'package:provider/provider.dart';
 
 class CategoryListPage extends StatelessWidget {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
+// import '../flutterbase/etc/flutterbase.globals.dart';
+
+/// @TODO: 유독 아래의 파일만 ../ 와 같은 relative path 지정하면 에러가 난다.
+import 'package:korea_flutter_community/flutterbase/etc/flutterbase.globals.dart';
 
 /// 앱 모델
 ///

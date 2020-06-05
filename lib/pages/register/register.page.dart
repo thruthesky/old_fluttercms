@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercms/flutterbase/etc/flutterbase.defines.dart';
-import 'package:fluttercms/flutterbase/etc/flutterbase.globals.dart';
-import 'package:fluttercms/flutterbase/widgets/flutterbase.appbar.dart';
-import 'package:fluttercms/flutterbase/widgets/user/flutterbase.register_form.dart';
-import 'package:fluttercms/services/app.defines.dart';
-import 'package:fluttercms/widgets/app.drawer.dart';
-import 'package:fluttercms/widgets/app.padding.dart';
+import '../../flutterbase/widgets/flutterbase.space.dart';
+import '../../flutterbase/etc/flutterbase.defines.dart';
+import '../../flutterbase/etc/flutterbase.globals.dart';
+import '../../flutterbase/widgets/flutterbase.appbar.dart';
+import '../../flutterbase/widgets/user/flutterbase.register_form.dart';
+import '../../services/app.defines.dart';
+import '../../widgets/app.drawer.dart';
+import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -22,17 +23,22 @@ class _RegisterPageState extends State<RegisterPage> {
             open(fb.loggedIn ? Routes.register : Routes.login),
       ),
       endDrawer: AppDrawer(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          AppPadding(
-            child: FlutterbaseRegisterFrom(
-              onError: alert,
-              onRegisterSuccess: () => open(Routes.home),
-              onUpdateSuccess: () => alert(t('profile updated')),
+      body: SingleChildScrollView(
+              child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+
+        FlutterbaseBigSpace(),
+        FlutterbaseBigSpace(),
+            FlutterbasePagePadding(
+              child: FlutterbaseRegisterFrom(
+                onError: alert,
+                onRegisterSuccess: () => open(Routes.home),
+                onUpdateSuccess: () => alert(t('profile updated')),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
