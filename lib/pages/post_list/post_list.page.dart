@@ -37,7 +37,7 @@ class _PostListPageState extends State<PostListPage> {
         forum.init(
           id: _args['id'],
           cacheKey: 'forum-list-' + _args['id'],
-          limit: 4,
+          limit: 10,
         );
       },
     );

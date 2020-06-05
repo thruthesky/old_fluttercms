@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 import '../../flutterbase/etc/flutterbase.post.helper.dart';
 import 'package:provider/provider.dart';
 import '../../flutterbase/models/flutterbase.post.model.dart';
@@ -39,11 +40,13 @@ class _PostViewPageState extends State<PostViewPage> {
           title: Text('${post.title}'),
         ),
         endDrawer: AppDrawer(),
-        body: SingleChildScrollView(
-          child: Consumer<FlutterbaseForumModel>(
-            builder: (context, model, child) {
-              return FlutterbasePostListView(_args['post']);
-            },
+        body: FlutterbasePagePadding(
+                  child: SingleChildScrollView(
+            child: Consumer<FlutterbaseForumModel>(
+              builder: (context, model, child) {
+                return FlutterbasePostListView(_args['post']);
+              },
+            ),
           ),
         ),
       ),

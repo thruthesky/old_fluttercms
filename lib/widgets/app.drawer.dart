@@ -91,28 +91,28 @@ class _AppDrawerState extends State<AppDrawer> {
             title: t('discussion'),
             icon: Icons.chat_bubble,
             onTap: () {
-              open(Routes.postList, arguments: {'id': 'discussion'});
+              AppRouter.open(context, Routes.postList, arguments: {'id': 'discussion'});
             },
           ),
           MenuItem(
             title: t('qna'),
             icon: Icons.live_help,
             onTap: () {
-              open(Routes.postList, arguments: {'id': 'qna'});
+              AppRouter.open(context, Routes.postList, arguments: {'id': 'qna'});
             },
           ),
           MenuItem(
             title: t('새소식'),
             icon: Icons.fiber_new,
             onTap: () {
-              open(Routes.postList, arguments: {'id': 'news'});
+              AppRouter.open(context, Routes.postList, arguments: {'id': 'news'});
             },
           ),
           MenuItem(
             title: t('정보 공유'),
             icon: Icons.screen_share,
             onTap: () {
-              open(Routes.postList, arguments: {'id': 'share'});
+              AppRouter.open(context, Routes.postList, arguments: {'id': 'share'});
             },
           ),
           DrawerDivider(title: t('Etc')),
