@@ -31,6 +31,7 @@
 
 ## 설치
 
+* 본 프로젝트는 [Flutterbase](https://github.com/thruthesky/flutterbase)를 바탕으로 제작된 것입니다. Flutterbase 문서를 참고하시면 보다 많은 정보를 얻을 수 있습니다.
 
 * 현재 Git repo 를 clone 또는 fork 해서 로컬 머신에서 테스트한다.
   * `git clone https://github.com/thruthesky/fluttercms [project_name]`
@@ -51,43 +52,7 @@
 
 ### 관리자 지정하기
 
-* 관리자를 만들고자 하는 사용자의 도큐먼트에서 `isAdmin` 속성에 true 의 값을 주면 된다. 
-* 예) `users/user-id/{ ..., isAdmin: true }`
-* 참고로, Firestore 에서 Document Filtering(검색) 기능을 통해서, 검색하면 된다. Document 필드 중 email 또는 uid 이 없다면, displayName 으로 검색하면 된다.
-
-
-
-### iOS 설치 예제
-
-* ios/Runner/GoogleService-Info.plist 파일을 삭제한다.
-* Xcode 에서 Runner > Identity 에서 Bundle ID 를 기록한다.
-* 파이어프로젝트에서 iOS 앱을 추가하고, Bundle ID 를 동일하게 기록한다.
-* GoogleService-Info.plist 를 다운로드해서
-  * ios/Runner/ 폴더에 저장한 다음,
-  * Xcode 의 Runner > Runner 아래로 드래그해서 넣는다.
-* pod 설치를 한다.
-  * cd ios
-  * pod install
-
-* 앱을 실행한다.
-* 관리자 이메일로 로그인을 한다.
-* 카테고리에
-  * discussion 과 qna 두개를 만든다.
-  * 게시판 글 쓰기를 한다.
-  * 코멘트 글 쓰기를 한다.
-  * 사진 업로드를 한다.
-* 로그아웃을 하고,
-  * 회원 가입을 한다.
-  * 회원 정보 수정을 한다.
-  * 회원 사진 업로드를 한다.
-
-
-### Android 설치 예제
-
-* android/app/google-services.json 을 삭제한다.
-* Firebase console 에서 Android 앱을 추가하고, google-services.json 을 다운 받아
-  * android/app/google-services.json 에 복사한다.
-
+* Flutterbase 참고
 
 ## 구성
 
@@ -99,34 +64,3 @@
 
 * Flutterbase 참고
 
-
-## Spinner
-
-* 처리 중 spinner 보여 줄 때, state 내에서 변수 정의 하고, state 업데이트 하는 등 번거로운 점이 있다.
-* spinner 변수를 모델이나 해당 객체(글 또는 코멘트 도큐먼트)에 저장해서 처리를 한다.
-* 즉, 해당 작업을 처리하는 함수 안에서 표시를 하도록 해서, 개벌 클래스 내에서는 코드를 줄인다.
-
-예를 들어
-
-* showSpinner: inDeleting 과 같이 true, false 에 따라 spinner 를 보여준다면,
-* fb.delete(post); 와 같이 호출 할 때,
-* delete() 안에서 post.inDeleting = true 하고, 작업이 끝나면 post.inDeleting = false 한다.
-
-
-## 삭제된 글 처리
-
-* 삭제 된 글을 삭제해도 글은 그냥 삭제가 된 것이다.
-* 또한 삭제된 글을 수정해도 이미 deletedAt 에 값이 있기 때문에 이미 삭제된 것이다.
-
-* 삭제 된 글을 삭제, 추천 할 때에는 해당 작업 처리 함수에서 에러를 throw 하도록 한다.
-
-* 하지만, 삭제된 글은 수정 할 때에는, 수정 작업 함수가, 사용자가 글을 다 수정한 후, 버튼을 클릭하면 발생하기 때문에, 사용자가 불편함을 겪게 된다. 따라서
-  * 수정 버튼을 없애거나
-  * disable 시키거나
-  * 또는 최소한 삭제가 되었으면 수정 버튼을 클릭 할 때 삭되었다고 알려준다.
-
-
-## 추천/비추천
-
-* 도큐먼트를 생성할 때, like 와 dislike 의 값을 0 으로 초기화 해야 한다. 그렇지 않으면, security rule 이나 기타 작업에서 번거로운 점이 많다.
-  * security rules 에서 rule 로 정한다.
