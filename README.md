@@ -38,6 +38,12 @@
   * `git submodule update --init`
   * `git submodule foreach git checkout master`
 
+* 경로 변경
+  * `package:fluttercms` 를 `package:[project_name]` 으로 변경을 한다.
+    * 특히, `lib/models/app.model.dart` 에서 `../flutterbase/etc/flutterbase.globals.dart` 와 같이 relative path 로 지정하면 에러가 난다.
+
+
+
 
 ### Firestore 권한 지정
 

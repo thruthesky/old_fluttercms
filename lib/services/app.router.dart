@@ -1,5 +1,7 @@
 // import '../pages/post_edit/post.edit.page.dart';
 
+import '../pages/post_view/post_view.page.dart';
+
 import '../pages/admin/admin.page.dart';
 import '../pages/category_edit/category_edit.page.dart';
 import '../pages/category_list/category_list.page.dart';
@@ -58,8 +60,8 @@ class AppRouter {
       route = _buildRoute(settings, PostListPage());
     // // else if (settings.name == Routes.postCreate)
     // //   route = _buildRoute(settings, PostEditPage());
-    // else if (settings.name == Routes.postView)
-    //   route = _buildRoute(settings, PostViewPage());
+    else if (settings.name == Routes.postView)
+      route = _buildRoute(settings, PostViewPage());
     else if (settings.name == Routes.admin)
       route = _buildRoute(settings, AdminPage());
     return route;
