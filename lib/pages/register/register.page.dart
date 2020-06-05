@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../flutterbase/widgets/flutterbase.space.dart';
 import '../../flutterbase/etc/flutterbase.defines.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/widgets/flutterbase.appbar.dart';
@@ -22,17 +23,22 @@ class _RegisterPageState extends State<RegisterPage> {
             open(fb.loggedIn ? Routes.register : Routes.login),
       ),
       endDrawer: AppDrawer(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          FlutterbasePagePadding(
-            child: FlutterbaseRegisterFrom(
-              onError: alert,
-              onRegisterSuccess: () => open(Routes.home),
-              onUpdateSuccess: () => alert(t('profile updated')),
+      body: SingleChildScrollView(
+              child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+
+        FlutterbaseBigSpace(),
+        FlutterbaseBigSpace(),
+            FlutterbasePagePadding(
+              child: FlutterbaseRegisterFrom(
+                onError: alert,
+                onRegisterSuccess: () => open(Routes.home),
+                onUpdateSuccess: () => alert(t('profile updated')),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
