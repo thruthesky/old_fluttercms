@@ -3,6 +3,7 @@
 * 명칭: Flutter CMS
 * 라이센스: GPL 3.0
 * 개발자: 송재호 thruthesky@gmail.com
+* 버전: 0.1.0
 
 ## 개요
 
