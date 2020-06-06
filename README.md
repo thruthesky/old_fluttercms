@@ -48,8 +48,8 @@
 * 먼저 fork를 하고 clone을 합니다.
   * Github 에서 https://github.com/thruthesky/fluttercms 를 fork
   * 그리고 clone
-
-* Pull Request를 할 계획이면 root 로 https://github.com/thruthesky/fluttercms 를 추가합니다.
+  * Pull Request를 할 계획이면 root 로 https://github.com/thruthesky/fluttercms 를 추가합니다.
+  * 참고로 PR 을 하지 않을 계획이면 굳이 fork 하지 않고 바로 clone 하면 됩니다.
 
 * Git submodule 을 초기화 합니다.
   * `git submodule update --init`
@@ -71,12 +71,12 @@
 * GoogleService-Info.plist 를 다운로드해서
   * ios/Runner/ 폴더에 저장한 다음,
   * Xcode 의 Runner > Runner 아래로 드래그해서 넣습니다.
-* pod 설치를 한다.
+* pod 설치를 합니다.
   * cd ios
   * pod install
 
-* 앱을 실행한다.
-* 관리자 이메일로 로그인 가입을 합니다.
+* 앱을 실행합니다.
+* 관리자로 사용할 이메일로 가입을 합니다.
 * 관리자 설정: [Flutterbase 관리자 지정](https://github.com/thruthesky/flutterbase#%EA%B4%80%EB%A6%AC%EC%9E%90-%EC%84%A4%EC%A0%95e)에서 설명된 데로 합니다.
 * 카테고리에
   * discussion 과 qna 두개를 만듭니다.
@@ -93,10 +93,37 @@
 ### Android 설치 예제
 
 * android/app/google-services.json 을 삭제합니다.
-* Firebase console 에서 Android 앱을 추가하고, google-services.json 을 다운 받아
-  * android/app/google-services.json 에 복사합니다.
+* 아래와 Android 앱 기본 설정을 합니다.
+  * 아래의 세 파일에서 package 를 App ID 로 변경
+    * android/app/src/main/AndroidManifest.xml
+    * android/app/src/debug/AndroidManifest.xml
+    * android/app/src/profile/AndroidManifest.xml
+  * android/app/build.gradle 에서 ApplicationId 를 App ID 로 변경
+  * android/app/src/main/kotlin/….MainActivity.kt 에서 package 를 App ID 로 변경
+  * android/app/build.gradle 에서 minSdkVersion 16 을 minSdkVersion 21 로 변경
 
-* 그리고 Application Id 를 조정합니다.
+* Firebase console 에서 Android 앱을 추가하고, google-services.json 을 다운 받아
+  * android/app/google-services.json 에 저장합니다.
+
+* Flutter 에서 google-services.json 을 읽을 수 있도록 Google Services Gradle plugin 을 설치
+  * android/app/build.gradle 파일을 열어서 맨 아래에 아래를 추
+    * `apply plugin: 'com.google.gms.google-services'`
+  * android/build.gradle 에서 buildscript tag 에 아래의 dependency 를 추가
+
+```
+buildscript {
+   repositories {
+       // ...
+   }
+
+   dependencies {
+       // ...
+       classpath 'com.google.gms:google-services:4.3.3'   // 추가
+   }
+}
+```
+
+
 
 
 ## 구성
