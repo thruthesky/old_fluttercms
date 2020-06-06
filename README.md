@@ -32,62 +32,71 @@
 
 ## 설치
 
+* 사실, 설치라기 보다는 [Flutterbase](https://github.com/thruthesky/flutterbase)를 활용하는 방법에 대해서 알아 보는 것입니다.
+* 크게 두가지 방법이 있는데,
+  * 첫째, 이미 만들어져 있는 Flutter 앱에 [Flutterbase](https://github.com/thruthesky/flutterbase)를 추가하는 방법과
+  * 둘째, `Flutterbase` 의 예제 앱인 [FlutterCMS](https://github.com/thruthesky/fluttercms)를 복사해서 사용하는 법
+    이 있습니다.
 
-* 현재 Git repo 를 clone 또는 fork 해서 로컬 머신에서 테스트한다.
-  * `git clone https://github.com/thruthesky/fluttercms [project_name]`
-  * `cd project_name`
+* 여기서는 `FlutterCMS`를 fork 한 다음 설정만 바꾸어서 사용하는 방법에 대해서 설명을 합니다.
+  * `Flutterbase` 를 추가하는 방법은 [Flutterbase](https://github.com/thruthesky/flutterbase) 문서를 참고해주세요.
+
+### Fork 또는 Clone
+
+* Fork(또는 Clone)를 해서 앱 설정을 변경하는 방법에 대해서 설명을 합니다.
+
+* 먼저 fork를 하고 clone을 합니다.
+  * Github 에서 https://github.com/thruthesky/fluttercms 를 fork
+  * 그리고 clone
+
+* Pull Request를 할 계획이면 root 로 https://github.com/thruthesky/fluttercms 를 추가합니다.
+
+* Git submodule 을 초기화 합니다.
   * `git submodule update --init`
   * `git submodule foreach git checkout master`
 
 * 경로 변경
-  * `package:fluttercms` 를 `package:[project_name]` 으로 변경을 한다.
-    * 특히, `lib/models/app.model.dart` 에서 `../flutterbase/etc/flutterbase.globals.dart` 와 같이 relative path 로 지정하면 에러가 난다.
+  * 몇 몇 소스코드에 `import package:fluttercms` 와 같이 되어져 있다면 이를 `import package:[project_name]` 으로 변경을 합니다. (소스 파일들을 검색을 해 볼 필요가 있습니다.)
+    * 특히, `lib/models/app.model.dart` 에서 `../flutterbase/etc/flutterbase.globals.dart` 와 같이 relative path 로 지정하면 에러가 나는데, 확인을 해 볼 필요가 있습니다.
 
+### Firebase 설정
 
-
-
-### Firestore 권한 지정
-
-* Flutterbase 참고
-
-### 관리자 지정하기
-
-* 관리자를 만들고자 하는 사용자의 도큐먼트에서 `isAdmin` 속성에 true 의 값을 주면 된다. 
-* 예) `users/user-id/{ ..., isAdmin: true }`
-* 참고로, Firestore 에서 Document Filtering(검색) 기능을 통해서, 검색하면 된다. Document 필드 중 email 또는 uid 이 없다면, displayName 으로 검색하면 된다.
-
-
+* [Flutterbase Firebase 설정](https://github.com/thruthesky/flutterbase#firebase-%EC%84%A4%EC%A0%95)에서 설명된데로 하면 됩니다.
 
 ### iOS 설치 예제
 
-* ios/Runner/GoogleService-Info.plist 파일을 삭제한다.
-* Xcode 에서 Runner > Identity 에서 Bundle ID 를 기록한다.
-* 파이어프로젝트에서 iOS 앱을 추가하고, Bundle ID 를 동일하게 기록한다.
+* 먼저 ios/Runner/GoogleService-Info.plist 파일을 삭제합니다.
+* Xcode 에서 Runner > Identity 에서 Bundle ID 를 기록합니다.
+* 파이어프로젝트에서 iOS 앱을 추가하고, Bundle ID 를 동일하게 기록합니다.
 * GoogleService-Info.plist 를 다운로드해서
   * ios/Runner/ 폴더에 저장한 다음,
-  * Xcode 의 Runner > Runner 아래로 드래그해서 넣는다.
+  * Xcode 의 Runner > Runner 아래로 드래그해서 넣습니다.
 * pod 설치를 한다.
   * cd ios
   * pod install
 
 * 앱을 실행한다.
-* 관리자 이메일로 로그인을 한다.
+* 관리자 이메일로 로그인 가입을 합니다.
+* 관리자 설정: [Flutterbase 관리자 지정](https://github.com/thruthesky/flutterbase#%EA%B4%80%EB%A6%AC%EC%9E%90-%EC%84%A4%EC%A0%95e)에서 설명된 데로 합니다.
 * 카테고리에
-  * discussion 과 qna 두개를 만든다.
-  * 게시판 글 쓰기를 한다.
-  * 코멘트 글 쓰기를 한다.
-  * 사진 업로드를 한다.
-* 로그아웃을 하고,
-  * 회원 가입을 한다.
-  * 회원 정보 수정을 한다.
-  * 회원 사진 업로드를 한다.
+  * discussion 과 qna 두개를 만듭니다.
+  * discussion 카테고리에 글 쓰기를 합니다.
+  * 코멘트 글 쓰기를 합니다.
+  * 사진 업로드를 합니다.
+
+* 로그아웃을 하고, 테스트 아이디로
+  * 회원 가입을 하고
+  * 회원 정보 수정하고
+  * 회원 사진 업로드를 합니다.
 
 
 ### Android 설치 예제
 
-* android/app/google-services.json 을 삭제한다.
+* android/app/google-services.json 을 삭제합니다.
 * Firebase console 에서 Android 앱을 추가하고, google-services.json 을 다운 받아
-  * android/app/google-services.json 에 복사한다.
+  * android/app/google-services.json 에 복사합니다.
+
+* 그리고 Application Id 를 조정합니다.
 
 
 ## 구성
@@ -100,34 +109,3 @@
 
 * Flutterbase 참고
 
-
-## Spinner
-
-* 처리 중 spinner 보여 줄 때, state 내에서 변수 정의 하고, state 업데이트 하는 등 번거로운 점이 있다.
-* spinner 변수를 모델이나 해당 객체(글 또는 코멘트 도큐먼트)에 저장해서 처리를 한다.
-* 즉, 해당 작업을 처리하는 함수 안에서 표시를 하도록 해서, 개벌 클래스 내에서는 코드를 줄인다.
-
-예를 들어
-
-* showSpinner: inDeleting 과 같이 true, false 에 따라 spinner 를 보여준다면,
-* fb.delete(post); 와 같이 호출 할 때,
-* delete() 안에서 post.inDeleting = true 하고, 작업이 끝나면 post.inDeleting = false 한다.
-
-
-## 삭제된 글 처리
-
-* 삭제 된 글을 삭제해도 글은 그냥 삭제가 된 것이다.
-* 또한 삭제된 글을 수정해도 이미 deletedAt 에 값이 있기 때문에 이미 삭제된 것이다.
-
-* 삭제 된 글을 삭제, 추천 할 때에는 해당 작업 처리 함수에서 에러를 throw 하도록 한다.
-
-* 하지만, 삭제된 글은 수정 할 때에는, 수정 작업 함수가, 사용자가 글을 다 수정한 후, 버튼을 클릭하면 발생하기 때문에, 사용자가 불편함을 겪게 된다. 따라서
-  * 수정 버튼을 없애거나
-  * disable 시키거나
-  * 또는 최소한 삭제가 되었으면 수정 버튼을 클릭 할 때 삭되었다고 알려준다.
-
-
-## 추천/비추천
-
-* 도큐먼트를 생성할 때, like 와 dislike 의 값을 0 으로 초기화 해야 한다. 그렇지 않으면, security rule 이나 기타 작업에서 번거로운 점이 많다.
-  * security rules 에서 rule 로 정한다.
