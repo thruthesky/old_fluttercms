@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "562416492819",
+    "firebase_url": "https://korean-flutter-community.firebaseio.com",
+    "project_id": "korean-flutter-community",
+    "storage_bucket": "korean-flutter-community.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562416492819:android:0e0e19d61d3ae3db31bae6",
+        "android_client_info": {
+          "package_name": "com.sonub.koreafluttercommunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562416492819-84mvg8s36rflor20qlgerdmr0om61rlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIyrALozpwNZlG3L575bQMjgu1lI4L65s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562416492819-84mvg8s36rflor20qlgerdmr0om61rlp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "562416492819-c68h40ms11818e8qkht1pg10qjocscbk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sonub.korean-flutter-community"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

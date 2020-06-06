@@ -76,19 +76,6 @@
   * pod install
 
 * 앱을 실행합니다.
-* 관리자로 사용할 이메일로 가입을 합니다.
-* 관리자 설정: [Flutterbase 관리자 지정](https://github.com/thruthesky/flutterbase#%EA%B4%80%EB%A6%AC%EC%9E%90-%EC%84%A4%EC%A0%95e)에서 설명된 데로 합니다.
-* 카테고리에
-  * discussion 과 qna 두개를 만듭니다.
-  * discussion 카테고리에 글 쓰기를 합니다.
-  * 코멘트 글 쓰기를 합니다.
-  * 사진 업로드를 합니다.
-
-* 로그아웃을 하고, 테스트 아이디로
-  * 회원 가입을 하고
-  * 회원 정보 수정하고
-  * 회원 사진 업로드를 합니다.
-
 
 ### Android 설치 예제
 
@@ -123,6 +110,21 @@ buildscript {
 }
 ```
 
+
+### iOS 와 Android 설정을 마친 후
+
+* 관리자로 사용할 이메일로 가입을 합니다.
+* 관리자 설정: [Flutterbase 관리자 지정](https://github.com/thruthesky/flutterbase#%EA%B4%80%EB%A6%AC%EC%9E%90-%EC%84%A4%EC%A0%95e)에서 설명된 데로 합니다.
+* 카테고리에
+  * discussion 과 qna 두개를 만듭니다.
+  * discussion 카테고리에 글 쓰기를 합니다.
+  * 코멘트 글 쓰기를 합니다.
+  * 사진 업로드를 합니다.
+
+* 로그아웃을 하고, 테스트 아이디로
+  * 회원 가입을 하고
+  * 회원 정보 수정하고
+  * 회원 사진 업로드를 합니다.
 
 
 
