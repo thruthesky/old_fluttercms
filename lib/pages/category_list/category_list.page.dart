@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import '../../flutterbase/widgets/flutterbase.spinner.dart';
 import '../../flutterbase/etc/flutterbase.category.helper.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/models/flutterbase.category_list.model.dart';
@@ -25,7 +25,7 @@ class CategoryListPage extends StatelessWidget {
           builder: (context, model, child) {
             if (model.inLoading)
               return Center(
-                child: PlatformCircularProgressIndicator(),
+                child: FlutterbaseSpinner(),
               );
             return Column(
               children: <Widget>[

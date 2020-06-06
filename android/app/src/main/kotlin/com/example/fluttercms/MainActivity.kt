@@ -1,4 +1,4 @@
-package com.example.fluttercms
+package com.sonub.koreafluttercommunity
 
 import io.flutter.embedding.android.FlutterActivity
 

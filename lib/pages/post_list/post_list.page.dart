@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import '../../flutterbase/widgets/flutterbase.spinner.dart';
+
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/models/flutterbase.forum_list.model.dart';
 import '../../flutterbase/models/flutterbase.post.model.dart';
@@ -12,7 +14,6 @@ import '../../services/app.globals.dart';
 
 import '../../widgets/app.padding.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/app.defines.dart';
@@ -83,7 +84,7 @@ class _PostListPageState extends State<PostListPage> {
                   children: <Widget>[
                     /// 첫 페이지 로더는 맨 위에만
                     if (model.inLoading && forum.pageNo == 1)
-                      PlatformCircularProgressIndicator(),
+                      FlutterbaseSpinner(),
                     ListView.builder(
                       primary: false,
                       shrinkWrap: true,
@@ -103,7 +104,7 @@ class _PostListPageState extends State<PostListPage> {
                     ),
                     if (model.inLoading && forum.pageNo > 1) ...[
                       /// 두번 째 페이지 부터 로더는 맨 아래만
-                      PlatformCircularProgressIndicator(),
+                      FlutterbaseSpinner(),
                       FlutterbaseBigSpace()
                     ],
                     if (model.noMorePosts) ...[
