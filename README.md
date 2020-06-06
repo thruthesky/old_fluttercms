@@ -63,6 +63,11 @@
 
 * [Flutterbase Firebase 설정](https://github.com/thruthesky/flutterbase#firebase-%EC%84%A4%EC%A0%95)에서 설명된데로 하면 됩니다.
 
+
+### 프로젝트 설정
+
+* [Flutterbase settings.dart 설정](https://github.com/thruthesky/flutterbase#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%A4%EC%A0%95) 을 참고해서 settings.dart 파일을 수정한다.
+
 ### iOS 설치 예제
 
 * 먼저 ios/Runner/GoogleService-Info.plist 파일을 삭제합니다.
