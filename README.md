@@ -55,10 +55,14 @@
 * 그리고 `basic` branch 를 체크아웃합니다.
   * `git checkout basic`
   * `basic` branch 에는 가장 간단한 코드들이 들어가 있으므로 재 활용하기가 편할 것입니다.
+  * 본 문서에서 설명은 `basic` branch 를 바탕으로 설명을 합니다.
 
 * 경로 변경
-  * 몇 몇 소스코드에 `import package:fluttercms` 와 같이 되어져 있다면 이를 `import package:[project_name]` 으로 변경을 합니다. (소스 파일들을 검색을 해 볼 필요가 있습니다.)
+  * 몇 몇 소스코드에 relative path 에 문제가 있을 수 있습니다.
+  * `import package:fluttercms` 와 같이 되어져 있다면 이를 `import package:[project_name]` 으로 변경을 합니다. (소스 파일들을 검색을 해 볼 필요가 있습니다.)
     * 특히, `lib/models/app.model.dart` 에서 `../flutterbase/etc/flutterbase.globals.dart` 와 같이 relative path 로 지정하면 에러가 나는데, 확인을 해 볼 필요가 있습니다.
+
+* `master` branch 는 launch.json 에 따라 여러 main.dart 로 분리되어져 있으니, `basic` branch 보다 약간 더 복잡 할 수 있습니다.
 
 ### Firebase 설정
 
@@ -143,4 +147,16 @@ buildscript {
 ## 테스트
 
 * Flutterbase 참고
+
+
+
+## master 브랜치 사용 설명
+
+* master 브랜치는 .vscode/launch.json 에 여러 `min.dart`로 분리해서 앱 UI 를 변경해 가면서 테스트를 한 것입니다.
+* 그래서 `main.dart` 가 다르고, `pubspec.yaml` 도 다릅니다.
+
+### pubspec.yaml
+
+* 기본 앱은 `pubspec.app.yaml` 을 `pubspec.yaml` 로 복사(또는 링크)해서 사용합니다.
+* 그 외 각 엡은 `apps/APP_NAME/APP_NAME.pubspec.yaml` 을 `pubspec.yaml` 로 복사(또는 링크)해서 사용하면 됩니다.
 

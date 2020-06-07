@@ -14,7 +14,7 @@
             "name": "Korea Flutter Community",
             "request": "launch",
             "type": "dart",
-            "program": "lib/apps/korea_flutter_community/korea_flutter_community_main.dart"
+            "program": "lib/apps/korea_flutter_community/korea_flutter_community.main.dart"
         }
     ]
 }

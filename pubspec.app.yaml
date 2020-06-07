@@ -80,11 +80,3 @@ flutter:
   ## 사용자
   assets:    
     - lib/flutterbase/assets/images/user-icon.png
-
-    ## 한국 플러터 커뮤니티
-    - lib/apps/korea_flutter_community/assets/title.png
-    - lib/apps/korea_flutter_community/assets/icons/flutter_icon.png
-    - lib/apps/korea_flutter_community/assets/icons/youtube_icon.png
-    - lib/apps/korea_flutter_community/assets/icons/kakaotalk_icon.png
-
-

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:korea_flutter_community/services/app.globals.dart';
+import 'package:korea_flutter_community/services/app.space.dart';
 import '../../../../flutterbase/widgets/flutterbase.page_padding.dart';
 import '../../../../flutterbase/widgets/forum/flutterbase.latest_posts.dart';
 import '../../../../flutterbase/etc/flutterbase.defines.dart';
@@ -12,10 +13,12 @@ class KoreaFlutterCommunityHomePage extends StatefulWidget {
   KoreaFlutterCommunityHomePage({Key key}) : super(key: key);
 
   @override
-  _KoreaFlutterCommunityHomePageState createState() => _KoreaFlutterCommunityHomePageState();
+  _KoreaFlutterCommunityHomePageState createState() =>
+      _KoreaFlutterCommunityHomePageState();
 }
 
-class _KoreaFlutterCommunityHomePageState extends State<KoreaFlutterCommunityHomePage> {
+class _KoreaFlutterCommunityHomePageState
+    extends State<KoreaFlutterCommunityHomePage> {
   @override
   void initState() {
     init();
@@ -46,24 +49,59 @@ class _KoreaFlutterCommunityHomePageState extends State<KoreaFlutterCommunityHom
       ),
       endDrawer: AppDrawer(),
       body: FlutterbasePagePadding(
-              child: SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(
-                onPressed: () => open(app.categoryListPage),
-                child: Text('Category List'),
+              Image.asset('lib/apps/korea_flutter_community/assets/title.png'),
+              AppSpace.spaceBox,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 28,
+                        child: Image.asset(
+                            'lib/apps/korea_flutter_community/assets/icons/youtube_icon.png'),
+                      ),
+                      AppSpace.spaceBox,
+                      Text(
+                        '플러터 강좌 모음',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 28,
+                        child: Image.asset(
+                            'lib/apps/korea_flutter_community/assets/icons/kakaotalk_icon.png'),
+                      ),
+                      AppSpace.spaceBox,
+                      Text(
+                        '한플 채팅방 입장',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              RaisedButton(
-                onPressed: () => open(app.categoryEditPage),
-                child: Text('Category Edit'),
+              AppSpace.spaceBox,
+              Container(
+                decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColorLight,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(16.0),
+                      bottomLeft: Radius.circular(16.0),
+                      bottomRight: Radius.circular(16.0),
+                    )),
+                child: FlutterbaseLatestPosts(
+                  route: app.postViewPage,
+                ),
               ),
-              RaisedButton(
-                onPressed: () =>
-                    open(app.postListPage, arguments: {'id': 'discussion'}),
-                child: Text('Discussoin'),
-              ),
-              FlutterbaseLatestPosts( route: app.postViewPage,  ),
             ],
           ),
         ),
