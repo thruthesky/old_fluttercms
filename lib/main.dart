@@ -45,10 +45,10 @@ class _TheAppState extends State<TheApp> {
       // await openForumBox(
       //   FlutterbasePostEditForm(id: 'qna'),
       // );
-      open(
-        Routes.postList,
-        arguments: {'id': 'discussion'},
-      );
+      // open(
+      //   Routes.postList,
+      //   arguments: {'id': 'discussion'},
+      // );
     });
 
     // 테스트 용도
