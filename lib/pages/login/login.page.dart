@@ -20,16 +20,16 @@ class LoginPage extends StatelessWidget {
         child: FlutterbaseLoginForm(
           /// 로고. 생략 가능하다.
           /// 생략하면 기본 아이콘이 보인다.
-          logo: FlutterbaseCircle(
-            elevation: 1.0,
-            child: SizedBox(
-              width: 128,
-              height: 128,
-              child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Image.asset('assets/korea/icons/flutter_icon.png')),
-            ),
-          ),
+          // logo: FlutterbaseCircle(
+          //   elevation: 1.0,
+          //   child: SizedBox(
+          //     width: 128,
+          //     height: 128,
+          //     child: Padding(
+          //         padding: EdgeInsets.all(8.0),
+          //         child: Image.asset('assets/korea/icons/flutter_icon.png')),
+          //   ),
+          // ),
 
           /// 로그인 성공 후 이벤트 핸들러
           onLogin: (user) => open(Routes.home),

@@ -32,17 +32,16 @@
 
 ## 설치
 
-* 사실, 설치라기 보다는 [Flutterbase](https://github.com/thruthesky/flutterbase)를 활용하는 방법에 대한 설명이라고 할 수 있습니다.
-  * 궁극적으로 `Flutterbase` 모듈을 재 사용하는 방법에 대한 이해를 하는 것이 목표입니다.
+* 사실, 설치라기 보다는 `활용하는 방법`에 대한 설명이라고 볼 수 있습니다.
+  * 궁극적으로 `Flutterbase` 모듈에 대한 이해를 잘 해서 복사하여 사용 할 수 있도록 하는것이 목표입니다.
 * 크게 두가지 방법이 있는데,
   * 첫째, 이미 만들어져 있는 Flutter 앱에 [Flutterbase](https://github.com/thruthesky/flutterbase)를 추가하는 방법과
-  * 둘째, `Flutterbase` 의 예제 앱인 [FlutterCMS](https://github.com/thruthesky/fluttercms)를 복사해서 사용하는 법
-    이 있습니다.
+  * 둘째, `Flutterbase` 의 예제 앱인 [FlutterCMS](https://github.com/thruthesky/fluttercms)를 복사해서 사용하는 법이 있습니다.
 
-* 여기서는 `FlutterCMS`를 fork 한 다음 설정만 바꾸어서 사용하는 방법에 대해서 설명을 합니다.
+* 여기서는 `FlutterCMS`를 fork(또는 clone 이나 소스 다운로드) 한 다음 설정만 바꾸어서 사용하는 방법에 대해서 설명을 합니다.
   * `Flutterbase` 를 추가하는 방법은 [Flutterbase](https://github.com/thruthesky/flutterbase) 문서를 참고해주세요.
 
-### 저장소 Clone
+### 소스 다운로드
 
 * https://github.com/thruthesky/fluttercms 를 clone 합니다.
   * Pull Request를 할 계획이면 fork 후 clone 으로 하고, root 로 https://github.com/thruthesky/fluttercms 를 추가합니다.
@@ -52,6 +51,10 @@
 * Git submodule 을 초기화 합니다.
   * `git submodule update --init`
   * `git submodule foreach git checkout master`
+
+* 그리고 `basic` branch 를 체크아웃합니다.
+  * `git checkout basic`
+  * `basic` branch 에는 가장 간단한 코드들이 들어가 있으므로 재 활용하기가 편할 것입니다.
 
 * 경로 변경
   * 몇 몇 소스코드에 `import package:fluttercms` 와 같이 되어져 있다면 이를 `import package:[project_name]` 으로 변경을 합니다. (소스 파일들을 검색을 해 볼 필요가 있습니다.)

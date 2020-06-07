@@ -48,9 +48,9 @@ class _TheAppState extends State<TheApp> {
       //   arguments: {'id': 'discussion'},
       // );
 
-      open(
-        Routes.login,
-      );
+      // open(
+      //   Routes.login,
+      // );
     });
 
     // 테스트 용도
