@@ -57,7 +57,7 @@ class _AppDrawerState extends State<AppDrawer> {
             title: t('home'),
             icon: Icons.home,
             onTap: () {
-              AppRouter.open(context, Routes.home);
+              AppRouter.open(context, app.homePage);
             },
           ),
           DrawerDivider(title: t('Member')),
@@ -65,7 +65,7 @@ class _AppDrawerState extends State<AppDrawer> {
             title: t(fb.loggedIn ? PROFILE_UPDATE_TITLE : REGISTER_TITLE),
             icon: Icons.person_add,
             onTap: () {
-              AppRouter.open(context, Routes.register);
+              AppRouter.open(context, app.registerPage);
             },
           ),
           if (fb.notLoggedIn)
@@ -73,7 +73,7 @@ class _AppDrawerState extends State<AppDrawer> {
               title: t('login'),
               icon: Icons.arrow_forward,
               onTap: () {
-                AppRouter.open(context, Routes.login);
+                AppRouter.open(context, app.loginPage);
               },
             ),
 
@@ -83,7 +83,7 @@ class _AppDrawerState extends State<AppDrawer> {
               icon: Icons.reply,
               onTap: () async {
                 await fb.logout();
-                AppRouter.open(context, Routes.home);
+                AppRouter.open(context, app.homePage);
               },
             ),
           DrawerDivider(title: t('forum')),
@@ -91,28 +91,28 @@ class _AppDrawerState extends State<AppDrawer> {
             title: t('discussion'),
             icon: Icons.chat_bubble,
             onTap: () {
-              AppRouter.open(context, Routes.postList, arguments: {'id': 'discussion'});
+              AppRouter.open(context, app.postListPage, arguments: {'id': 'discussion'});
             },
           ),
           MenuItem(
             title: t('qna'),
             icon: Icons.live_help,
             onTap: () {
-              AppRouter.open(context, Routes.postList, arguments: {'id': 'qna'});
+              AppRouter.open(context, app.postListPage, arguments: {'id': 'qna'});
             },
           ),
           MenuItem(
             title: t('새소식'),
             icon: Icons.fiber_new,
             onTap: () {
-              AppRouter.open(context, Routes.postList, arguments: {'id': 'news'});
+              AppRouter.open(context, app.postListPage, arguments: {'id': 'news'});
             },
           ),
           MenuItem(
             title: t('정보 공유'),
             icon: Icons.screen_share,
             onTap: () {
-              AppRouter.open(context, Routes.postList, arguments: {'id': 'share'});
+              AppRouter.open(context, app.postListPage, arguments: {'id': 'share'});
             },
           ),
           DrawerDivider(title: t('Etc')),
@@ -120,21 +120,21 @@ class _AppDrawerState extends State<AppDrawer> {
             title: t('help'),
             icon: Icons.help_outline,
             onTap: () {
-              AppRouter.open(context, Routes.help);
+              AppRouter.open(context, app.homePage);
             },
           ),
           MenuItem(
             title: t('setting'),
             icon: Icons.settings,
             onTap: () {
-              AppRouter.open(context, Routes.settings);
+              AppRouter.open(context, app.homePage);
             },
           ),
           if (fb.isAdmin) MenuItem(
             title: t('Admin Dashboard'),
             icon: Icons.settings,
             onTap: () {
-              AppRouter.open(context, Routes.admin);
+              AppRouter.open(context, app.adminPage);
             },
           ),
         ],

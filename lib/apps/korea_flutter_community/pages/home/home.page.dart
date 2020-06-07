@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:korea_flutter_community/services/app.globals.dart';
-import '../../flutterbase/widgets/flutterbase.page_padding.dart';
-import '../../flutterbase/widgets/forum/flutterbase.latest_posts.dart';
-import '../../flutterbase/etc/flutterbase.defines.dart';
-import '../../flutterbase/etc/flutterbase.globals.dart';
-import '../../flutterbase/widgets/flutterbase.appbar.dart';
-import '../../flutterbase/widgets/flutterbase.post_create_action_button.dart';
-import '../../services/app.defines.dart';
-import '../../widgets/app.drawer.dart';
+import '../../../../flutterbase/widgets/flutterbase.page_padding.dart';
+import '../../../../flutterbase/widgets/forum/flutterbase.latest_posts.dart';
+import '../../../../flutterbase/etc/flutterbase.defines.dart';
+import '../../../../flutterbase/etc/flutterbase.globals.dart';
+import '../../../../flutterbase/widgets/flutterbase.appbar.dart';
+import '../../../../flutterbase/widgets/flutterbase.post_create_action_button.dart';
+import '../../../../services/app.defines.dart';
+import '../../../../widgets/app.drawer.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -51,20 +51,20 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              RaisedButton(
+                onPressed: () => open(app.categoryListPage),
+                child: Text('Category List'),
+              ),
+              RaisedButton(
+                onPressed: () => open(app.categoryEditPage),
+                child: Text('Category Edit'),
+              ),
+              RaisedButton(
+                onPressed: () =>
+                    open(app.postListPage, arguments: {'id': 'discussion'}),
+                child: Text('Discussoin'),
+              ),
               FlutterbaseLatestPosts( route: app.postViewPage,  ),
-              // RaisedButton(
-              //   onPressed: () => open(Routes.categoryList),
-              //   child: Text('Category List'),
-              // ),
-              // RaisedButton(
-              //   onPressed: () => open(Routes.categoryEdit),
-              //   child: Text('Category Edit'),
-              // ),
-              // RaisedButton(
-              //   onPressed: () =>
-              //       open(Routes.postList, arguments: {'id': 'discussion'}),
-              //   child: Text('Discussoin'),
-              // ),
             ],
           ),
         ),

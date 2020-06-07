@@ -8,14 +8,14 @@ import 'package:provider/provider.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import './flutterbase/etc/flutterbase.app.localization.dart';
-import './flutterbase/etc/flutterbase.defines.dart';
-import './flutterbase/etc/flutterbase.globals.dart';
-import './flutterbase/tests/flutterbase.test.dart';
-import './services/app.defines.dart';
-import './services/app.globals.dart';
-import './services/app.router.dart';
-import './settings.dart';
+import '../../flutterbase/etc/flutterbase.app.localization.dart';
+import '../../flutterbase/etc/flutterbase.defines.dart';
+import '../../flutterbase/etc/flutterbase.globals.dart';
+import '../../flutterbase/tests/flutterbase.test.dart';
+import '../../services/app.defines.dart';
+import '../../services/app.globals.dart';
+import '../../services/app.router.dart';
+import '../../settings.dart';
 
 void main() async {
   /// Hive 를 준비한다.
@@ -49,7 +49,7 @@ class _TheAppState extends State<TheApp> {
       // );
 
       // open(
-      //   app.loginPage,
+      //   Routes.login,
       // );
     });
 
@@ -70,6 +70,9 @@ class _TheAppState extends State<TheApp> {
 
   @override
   Widget build(BuildContext context) {
+
+
+    
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => app),

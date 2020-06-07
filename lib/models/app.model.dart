@@ -17,6 +17,18 @@ class AppModel extends ChangeNotifier {
 
   AppModel();
 
+  /// 라우트 정의
+  /// 
+  /// 필요에 따라 변경해서 사용하면 된다.
+  String homePage = 'home';
+  String registerPage = 'register';
+  String loginPage = 'login';
+  String categoryEditPage = 'categoryEdit';
+  String categoryListPage = 'categoryList';
+  String postListPage = 'postList';
+  String postViewPage = 'postView';
+  String adminPage = 'admin';
+
   /// Returns the context of [navigatorKey]
   BuildContext get context => fb.context;
 

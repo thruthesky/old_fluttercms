@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:korea_flutter_community/services/app.globals.dart';
 import '../../flutterbase/widgets/flutterbase.space.dart';
 import '../../flutterbase/etc/flutterbase.defines.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/widgets/flutterbase.appbar.dart';
 import '../../flutterbase/widgets/user/flutterbase.register_form.dart';
-import '../../services/app.defines.dart';
 import '../../widgets/app.drawer.dart';
 import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 
@@ -20,7 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: FlutterbaseAppBar(
         title: t(fb.loggedIn ? PROFILE_UPDATE_TITLE : REGISTER_TITLE),
         onTapUserPhoto: () =>
-            open(fb.loggedIn ? Routes.register : Routes.login),
+            open(fb.loggedIn ? app.registerPage : app.loginPage),
       ),
       endDrawer: AppDrawer(),
       body: SingleChildScrollView(
@@ -33,7 +33,7 @@ class _RegisterPageState extends State<RegisterPage> {
             FlutterbasePagePadding(
               child: FlutterbaseRegisterFrom(
                 onError: alert,
-                onRegisterSuccess: () => open(Routes.home),
+                onRegisterSuccess: () => open(app.homePage),
                 onUpdateSuccess: () => alert(t('profile updated')),
               ),
             ),

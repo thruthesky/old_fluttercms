@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:korea_flutter_community/services/app.globals.dart';
 import '../../flutterbase/widgets/flutterbase.spinner.dart';
 import '../../flutterbase/etc/flutterbase.category.helper.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/models/flutterbase.category_list.model.dart';
 import '../../flutterbase/widgets/flutterbase.text.dart';
-import '../../services/app.defines.dart';
 import '../../widgets/app.drawer.dart';
 import 'package:provider/provider.dart';
 
@@ -42,7 +42,7 @@ class CategoryListPage extends StatelessWidget {
                         onTap: () async {
                           try {
                             await open(
-                              Routes.categoryEdit,
+                              app.categoryEditPage,
                               arguments: {'category': cat},
                             );
                             // print('category edited or delete');
@@ -69,7 +69,7 @@ class CreateCategoryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RaisedButton(
       onPressed: () async {
-        final re = await open(Routes.categoryEdit);
+        final re = await open(app.categoryEditPage);
         if (re != null) {
           // print('created: $re');
           Provider.of<FlutterbaseCategoryListModel>(context, listen: false)

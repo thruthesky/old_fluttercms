@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:korea_flutter_community/services/app.globals.dart';
 import '../../flutterbase/etc/flutterbase.defines.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/widgets/flutterbase.text.dart';
@@ -25,7 +26,7 @@ class _AdminPageState extends State<AdminPage> {
             children: <Widget>[
               RaisedButton(
                 onPressed: () {
-                  open(Routes.categoryList);
+                  open(app.categoryListPage);
                 },
                 child: T('Category List'),
               ),

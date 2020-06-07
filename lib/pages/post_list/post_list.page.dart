@@ -72,7 +72,7 @@ class _PostListPageState extends State<PostListPage> {
             forum: forum,
           ),
           onTapUserPhoto: () =>
-              open(fb.loggedIn ? Routes.register : Routes.login),
+              open(fb.loggedIn ? app.registerPage : app.loginPage),
         ),
         endDrawer: AppDrawer(),
         body: FlutterbasePagePadding(

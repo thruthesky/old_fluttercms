@@ -42,27 +42,27 @@ class AppRouter {
 
   static Route<dynamic> generate(RouteSettings settings) {
     Route route;
-    if (settings.name == Routes.home)
+    if (settings.name == app.homePage)
       route = _buildRoute(settings, HomePage());
-    else if (settings.name == Routes.register)
+    else if (settings.name == app.registerPage)
       route = _buildRoute(settings, RegisterPage());
-    else if (settings.name == Routes.login)
+    else if (settings.name == app.loginPage)
       route = _buildRoute(settings, LoginPage());
-    // else if (settings.name == Routes.help)
+    // else if (settings.name == app.helpPage)
     //   route = _buildRoute(settings, HelpPage());
-    // else if (settings.name == Routes.settings)
+    // else if (settings.name == app.settingsPage)
     //   route = _buildRoute(settings, SettingsPage());
-    else if (settings.name == Routes.categoryEdit)
+    else if (settings.name == app.categoryEditPage)
       route = _buildRoute(settings, CategoryEditPage());
-    else if (settings.name == Routes.categoryList)
+    else if (settings.name == app.categoryListPage)
       route = _buildRoute(settings, CategoryListPage());
-    else if (settings.name == Routes.postList)
+    else if (settings.name == app.postListPage)
       route = _buildRoute(settings, PostListPage());
-    // // else if (settings.name == Routes.postCreate)
+    // // else if (settings.name == app.postCreatePage)
     // //   route = _buildRoute(settings, PostEditPage());
-    else if (settings.name == Routes.postView)
+    else if (settings.name == app.postViewPage)
       route = _buildRoute(settings, PostViewPage());
-    else if (settings.name == Routes.admin)
+    else if (settings.name == app.adminPage)
       route = _buildRoute(settings, AdminPage());
     return route;
   }
