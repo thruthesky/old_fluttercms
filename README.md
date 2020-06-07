@@ -32,7 +32,8 @@
 
 ## 설치
 
-* 사실, 설치라기 보다는 [Flutterbase](https://github.com/thruthesky/flutterbase)를 활용하는 방법에 대해서 알아 보는 것입니다.
+* 사실, 설치라기 보다는 [Flutterbase](https://github.com/thruthesky/flutterbase)를 활용하는 방법에 대한 설명이라고 할 수 있습니다.
+  * 궁극적으로 `Flutterbase` 모듈을 재 사용하는 방법에 대한 이해를 하는 것이 목표입니다.
 * 크게 두가지 방법이 있는데,
   * 첫째, 이미 만들어져 있는 Flutter 앱에 [Flutterbase](https://github.com/thruthesky/flutterbase)를 추가하는 방법과
   * 둘째, `Flutterbase` 의 예제 앱인 [FlutterCMS](https://github.com/thruthesky/fluttercms)를 복사해서 사용하는 법
@@ -41,15 +42,12 @@
 * 여기서는 `FlutterCMS`를 fork 한 다음 설정만 바꾸어서 사용하는 방법에 대해서 설명을 합니다.
   * `Flutterbase` 를 추가하는 방법은 [Flutterbase](https://github.com/thruthesky/flutterbase) 문서를 참고해주세요.
 
-### Fork 또는 Clone
+### 저장소 Clone
 
-* Fork(또는 Clone)를 해서 앱 설정을 변경하는 방법에 대해서 설명을 합니다.
-
-* 먼저 fork를 하고 clone을 합니다.
-  * Github 에서 https://github.com/thruthesky/fluttercms 를 fork
-  * 그리고 clone
-  * Pull Request를 할 계획이면 root 로 https://github.com/thruthesky/fluttercms 를 추가합니다.
+* https://github.com/thruthesky/fluttercms 를 clone 합니다.
+  * Pull Request를 할 계획이면 fork 후 clone 으로 하고, root 로 https://github.com/thruthesky/fluttercms 를 추가합니다.
   * 참고로 PR 을 하지 않을 계획이면 굳이 fork 하지 않고 바로 clone 하면 됩니다.
+  * 그리고 굳이 clone 할 필요없이 소스를 다운로드 해서 사용하셔도 됩니다.
 
 * Git submodule 을 초기화 합니다.
   * `git submodule update --init`
