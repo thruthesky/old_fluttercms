@@ -6,17 +6,16 @@ import '../../../../flutterbase/etc/flutterbase.defines.dart';
 import '../../../../flutterbase/etc/flutterbase.globals.dart';
 import '../../../../flutterbase/widgets/flutterbase.appbar.dart';
 import '../../../../flutterbase/widgets/flutterbase.post_create_action_button.dart';
-import '../../../../services/app.defines.dart';
 import '../../../../widgets/app.drawer.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+class KoreaFlutterCommunityHomePage extends StatefulWidget {
+  KoreaFlutterCommunityHomePage({Key key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _KoreaFlutterCommunityHomePageState createState() => _KoreaFlutterCommunityHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _KoreaFlutterCommunityHomePageState extends State<KoreaFlutterCommunityHomePage> {
   @override
   void initState() {
     init();

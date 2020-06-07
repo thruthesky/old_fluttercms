@@ -1,19 +1,20 @@
-// import '../pages/post_edit/post.edit.page.dart';
+// import '../../../pages/post_edit/post.edit.page.dart';
 
-import '../pages/post_view/post_view.page.dart';
+import 'package:korea_flutter_community/apps/korea_flutter_community/pages/home/korea_flutter_community.home.page.dart';
 
-import '../pages/admin/admin.page.dart';
-import '../pages/category_edit/category_edit.page.dart';
-import '../pages/category_list/category_list.page.dart';
-import '../pages/home/home.page.dart';
-import '../pages/login/login.page.dart';
-import '../pages/post_list/post_list.page.dart';
-import '../pages/register/register.page.dart';
-import '../services/app.globals.dart';
+import '../../../pages/post_view/post_view.page.dart';
+
+import '../../../pages/admin/admin.page.dart';
+import '../../../pages/category_edit/category_edit.page.dart';
+import '../../../pages/category_list/category_list.page.dart';
+import '../../../pages/login/login.page.dart';
+import '../../../pages/post_list/post_list.page.dart';
+import '../../../pages/register/register.page.dart';
+import '../../../services/app.globals.dart';
 
 import 'package:flutter/material.dart';
 
-class AppRouter {
+class KoreaFluttetrCommunityRouter {
   ///
   /// Opens a page
   /// [nextRoute] is the route to open
@@ -42,7 +43,7 @@ class AppRouter {
   static Route<dynamic> generate(RouteSettings settings) {
     Route route;
     if (settings.name == app.homePage)
-      route = _buildRoute(settings, HomePage());
+      route = _buildRoute(settings, KoreaFlutterCommunityHomePage());
     else if (settings.name == app.registerPage)
       route = _buildRoute(settings, RegisterPage());
     else if (settings.name == app.loginPage)

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import './services/korea_flutter_community.router.dart';
 import 'package:provider/provider.dart';
 
 import 'package:hive/hive.dart';
@@ -12,9 +13,7 @@ import '../../flutterbase/etc/flutterbase.app.localization.dart';
 import '../../flutterbase/etc/flutterbase.defines.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/tests/flutterbase.test.dart';
-import '../../services/app.defines.dart';
 import '../../services/app.globals.dart';
-import '../../services/app.router.dart';
 import '../../settings.dart';
 
 void main() async {
@@ -89,7 +88,7 @@ class _TheAppState extends State<TheApp> {
           // primarySwatch: Colors.yellow
           // primarySwatch: Colors.amber, // background is amber. object should be black.
         ),
-        onGenerateRoute: AppRouter.generate,
+        onGenerateRoute: KoreaFluttetrCommunityRouter.generate,
         navigatorKey: fb.navigatorKey,
         localizationsDelegates: [
           AppLocalizations.delegate,
