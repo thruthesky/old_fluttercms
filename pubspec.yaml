@@ -80,3 +80,8 @@ flutter:
   ## 사용자
   assets:    
     - lib/flutterbase/assets/images/user-icon.png
+
+    - lib/apps/korea-flutter-community/assets/title.png
+    - lib/apps/korea-flutter-community/assets/icons/flutter_icon.png
+
+

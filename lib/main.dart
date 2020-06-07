@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -8,7 +7,6 @@ import 'package:provider/provider.dart';
 
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 
 import './flutterbase/etc/flutterbase.app.localization.dart';
 import './flutterbase/etc/flutterbase.defines.dart';
@@ -49,6 +47,10 @@ class _TheAppState extends State<TheApp> {
       //   Routes.postList,
       //   arguments: {'id': 'discussion'},
       // );
+
+      open(
+        Routes.login,
+      );
     });
 
     // 테스트 용도
