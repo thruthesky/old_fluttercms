@@ -67,6 +67,9 @@ dependencies:
   ## Font Awesome Icons
   font_awesome_flutter: ^8.8.1
 
+  ## ---- 이하 한국 플러터 커뮤니티 전용 ----
+  webview_flutter: ^0.3.22+1
+  url_launcher: ^5.4.10
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:korea_flutter_community/services/app.globals.dart';
 import 'package:korea_flutter_community/services/app.space.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../../flutterbase/widgets/flutterbase.page_padding.dart';
 import '../../../../flutterbase/widgets/forum/flutterbase.latest_posts.dart';
 import '../../../../flutterbase/etc/flutterbase.defines.dart';
@@ -54,41 +55,60 @@ class _KoreaFlutterCommunityHomePageState
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset('lib/apps/korea_flutter_community/assets/title.png'),
-              AppSpace.spaceBox,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 28,
-                        child: Image.asset(
-                            'lib/apps/korea_flutter_community/assets/icons/youtube_icon.png'),
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => open('tutorial'),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 28,
+                            child: Image.asset(
+                                'lib/apps/korea_flutter_community/assets/icons/youtube_icon.png'),
+                          ),
+                          AppSpace.spaceBox,
+                          Text(
+                            '플러터 강좌 모음',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                        ],
                       ),
-                      AppSpace.spaceBox,
-                      Text(
-                        '플러터 강좌 모음',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                    ],
+                    ),
                   ),
-                  Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 28,
-                        child: Image.asset(
-                            'lib/apps/korea_flutter_community/assets/icons/kakaotalk_icon.png'),
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () async {
+                      final String url = 'https://open.kakao.com/o/g20m41Mb';
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        alert('Could not launch $url');
+                      }
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 28,
+                            child: Image.asset(
+                                'lib/apps/korea_flutter_community/assets/icons/kakaotalk_icon.png'),
+                          ),
+                          AppSpace.spaceBox,
+                          Text(
+                            '한플 채팅방 입장',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                        ],
                       ),
-                      AppSpace.spaceBox,
-                      Text(
-                        '한플 채팅방 입장',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                    ],
+                    ),
                   ),
                 ],
               ),
-              AppSpace.spaceBox,
               Container(
                 decoration: BoxDecoration(
                     color: Theme.of(context).primaryColorLight,
@@ -100,6 +120,7 @@ class _KoreaFlutterCommunityHomePageState
                     )),
                 child: FlutterbaseLatestPosts(
                   route: app.postViewPage,
+                  subtitle: true,
                 ),
               ),
             ],

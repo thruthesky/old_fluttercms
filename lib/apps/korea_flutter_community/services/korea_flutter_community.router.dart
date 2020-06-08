@@ -1,6 +1,7 @@
 // import '../../../pages/post_edit/post.edit.page.dart';
 
 import 'package:korea_flutter_community/apps/korea_flutter_community/pages/home/korea_flutter_community.home.page.dart';
+import 'package:korea_flutter_community/apps/korea_flutter_community/pages/tutorial/korea_flutter_community.tutorial.page.dart';
 
 import '../../../pages/post_view/post_view.page.dart';
 
@@ -40,6 +41,7 @@ class KoreaFluttetrCommunityRouter {
     }
   }
 
+  /// 한플 커뮤니티 라우터
   static Route<dynamic> generate(RouteSettings settings) {
     Route route;
     if (settings.name == app.homePage)
@@ -48,22 +50,18 @@ class KoreaFluttetrCommunityRouter {
       route = _buildRoute(settings, RegisterPage());
     else if (settings.name == app.loginPage)
       route = _buildRoute(settings, LoginPage());
-    // else if (settings.name == app.helpPage)
-    //   route = _buildRoute(settings, HelpPage());
-    // else if (settings.name == app.settingsPage)
-    //   route = _buildRoute(settings, SettingsPage());
     else if (settings.name == app.categoryEditPage)
       route = _buildRoute(settings, CategoryEditPage());
     else if (settings.name == app.categoryListPage)
       route = _buildRoute(settings, CategoryListPage());
     else if (settings.name == app.postListPage)
       route = _buildRoute(settings, PostListPage());
-    // // else if (settings.name == app.postCreatePage)
-    // //   route = _buildRoute(settings, PostEditPage());
     else if (settings.name == app.postViewPage)
       route = _buildRoute(settings, PostViewPage());
     else if (settings.name == app.adminPage)
       route = _buildRoute(settings, AdminPage());
+    else if (settings.name == 'tutorial')
+      route = _buildRoute(settings, KoreaFlutterCommunityTutorialPage());
     return route;
   }
 

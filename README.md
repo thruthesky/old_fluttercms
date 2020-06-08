@@ -152,11 +152,17 @@ buildscript {
 
 ## master 브랜치 사용 설명
 
-* master 브랜치는 .vscode/launch.json 에 여러 `min.dart`로 분리해서 앱 UI 를 변경해 가면서 테스트를 한 것입니다.
-* 그래서 `main.dart` 가 다르고, `pubspec.yaml` 도 다릅니다.
+* master 브랜치는 .vscode/launch.json 에 설정을 통해서 여러 `min.dart`로 분리해서 각 앱 마다 UI 를 변경해 가면서 테스트를 했습니다.
+* 그래서 각 앱마다 `main.dart` 가 다르고, `pubspec.yaml` 도 다릅니다.
+* launch.json 에서 `Flutter` 를 실행하면 기본 앱이 실행됩니다.
+* 만약, 보다 간단한 예제를 보고자 한다면 `basic` 브랜치를 사용하시면 됩니다.
 
 ### pubspec.yaml
 
-* 기본 앱은 `pubspec.app.yaml` 을 `pubspec.yaml` 로 복사(또는 링크)해서 사용합니다.
-* 그 외 각 엡은 `apps/APP_NAME/APP_NAME.pubspec.yaml` 을 `pubspec.yaml` 로 복사(또는 링크)해서 사용하면 됩니다.
+* 기본 앱은 `lib/main.dart`를 사용합니다. 이 때, 아래와 같이 프로젝트 설정을 해야합니다.
+  * `etc/pubspec.app.yaml` 을 `pubspec.yaml` 로 복사(또는 링크)해서 사용합니다.
+  * `etc/Info.plist` 를 `ios/Runnder/Info.plist` 로 복사(또는 링크)해서 사용합니다.
+* 그 외 각 엡은
+  * `apps/APP_NAME/APP_NAME.pubspec.yaml` 을 `pubspec.yaml` 로 복사(또는 링크)해서 사용합니다.
+  * `apps/APP_NAME/APP_NAME.plist` 를 `ios/Runnder/Info.plist` 로 복사(또는 링크)해서 사용합니다.
 
