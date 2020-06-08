@@ -1,0 +1,15 @@
+{
+    "apps": {
+        "default": {
+            "AppId": "com.sonub.fluttercms",
+            "files": {
+                "google-service.json": "",
+                "GoogleService-Info.plist": ""
+            }
+        },
+        "korea_flutter_community": {
+            "AppId": "com.sonub.koreafluttercommunity"
+        }
+    },
+    "MainActivity": "android/app/src/main/kotlin/com/example/fluttercms/MainActivity.kt"
+}
