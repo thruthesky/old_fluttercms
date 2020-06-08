@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:korea_flutter_community/services/app.globals.dart';
+import '../../services/app.globals.dart';
 import '../../flutterbase/etc/flutterbase.defines.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/widgets/flutterbase.text.dart';
-import '../../services/app.defines.dart';
 import '../../widgets/app.drawer.dart';
 
 class AdminPage extends StatefulWidget {

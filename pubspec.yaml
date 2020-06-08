@@ -1,6 +1,7 @@
-name: korea_flutter_community
+name: fluttercms
 description: A new Flutter project.
 version: 1.0.0+1
+
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -51,6 +52,7 @@ dependencies:
   validators: ^2.0.0+1
 
 
+
   ## `Firebase Firestore` 에 파일 업로드를 위한 패키지
   firebase_storage: ^3.1.6
 
@@ -69,12 +71,12 @@ dependencies:
   ## ---- 이하 한국 플러터 커뮤니티 전용 ----
   webview_flutter: ^0.3.22+1
   url_launcher: ^5.4.10
-  flutter_launcher_icons: ^0.7.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_launcher_icons: ^0.7.5
 
 flutter:
 

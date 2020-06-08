@@ -1,7 +1,7 @@
 // import '../../../pages/post_edit/post.edit.page.dart';
 
-import 'package:korea_flutter_community/apps/korea_flutter_community/pages/home/korea_flutter_community.home.page.dart';
-import 'package:korea_flutter_community/apps/korea_flutter_community/pages/tutorial/korea_flutter_community.tutorial.page.dart';
+import '../pages/home/korea_flutter_community.home.page.dart';
+import '../pages/tutorial/korea_flutter_community.tutorial.page.dart';
 
 import '../../../pages/post_view/post_view.page.dart';
 

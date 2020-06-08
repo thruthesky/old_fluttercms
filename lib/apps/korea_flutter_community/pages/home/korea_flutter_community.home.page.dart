@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:korea_flutter_community/services/app.globals.dart';
-import 'package:korea_flutter_community/services/app.space.dart';
+import '../../../../services/app.globals.dart';
+import '../../../../services/app.space.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../flutterbase/widgets/flutterbase.page_padding.dart';
 import '../../../../flutterbase/widgets/forum/flutterbase.latest_posts.dart';

@@ -1,6 +1,7 @@
-name: korea_flutter_community
+name: fluttercms
 description: A new Flutter project.
 version: 1.0.0+1
+
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -67,11 +68,15 @@ dependencies:
   ## Font Awesome Icons
   font_awesome_flutter: ^8.8.1
 
+  ## ---- 이하 한국 플러터 커뮤니티 전용 ----
+  webview_flutter: ^0.3.22+1
+  url_launcher: ^5.4.10
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_launcher_icons: ^0.7.5
 
 flutter:
 
@@ -80,3 +85,16 @@ flutter:
   ## 사용자
   assets:    
     - lib/flutterbase/assets/images/user-icon.png
+
+    ## 한국 플러터 커뮤니티
+    - lib/apps/korea_flutter_community/assets/title.png
+    - lib/apps/korea_flutter_community/assets/icons/flutter_icon.png
+    - lib/apps/korea_flutter_community/assets/icons/youtube_icon.png
+    - lib/apps/korea_flutter_community/assets/icons/kakaotalk_icon.png
+
+
+## 한국 플러터 커뮤니티
+flutter_icons:
+  android: "launcher_icon" 
+  ios: true
+  image_path: "tmp/korea_flutter_community_app_icon.png"

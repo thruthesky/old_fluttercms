@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:korea_flutter_community/services/app.globals.dart';
+import '../../services/app.globals.dart';
 import '../../flutterbase/widgets/flutterbase.spinner.dart';
 import '../../flutterbase/etc/flutterbase.category.helper.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';

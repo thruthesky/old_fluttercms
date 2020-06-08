@@ -18,7 +18,7 @@
 		<string>zh</string>
 	</array>
 	<key>CFBundleName</key>
-	<string>한플</string>
+	<string>FlutterCMS</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

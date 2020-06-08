@@ -154,15 +154,31 @@ buildscript {
 
 * master 브랜치는 .vscode/launch.json 에 설정을 통해서 여러 `min.dart`로 분리해서 각 앱 마다 UI 를 변경해 가면서 테스트를 했습니다.
 * 그래서 각 앱마다 `main.dart` 가 다르고, `pubspec.yaml` 도 다릅니다.
-* launch.json 에서 `Flutter` 를 실행하면 기본 앱이 실행됩니다.
-* 만약, 보다 간단한 예제를 보고자 한다면 `basic` 브랜치를 사용하시면 됩니다.
+* launch.json 에서 `Flutter` 를 실행하면 기본 앱이 실행되지만,
+  * pubspec.yaml 이나 Info.plist 등은 기본 파일의 것이 아닐 수 있습니다.
+  * 이 때, 각 앱 설정에 맞는 모든 변경을 다 해 주어야 합니다.
+
+* 간단하게 앱 설정을 변경하기 위해서 패치 프로그램을 만들었습니다.
+  * [Flutter Multi Apps](https://github.com/thruthesky/flutter-multi-apps) 를 참고합니다.
+
+
+### Flutter Multi Apps 로 설정
+
+* 아래와 같이 명령하면 기본 `lib/main.dart` 를 위한 설정을 한다.
+
+```
+$ ts-node src/index.ts --path /flutter/root/folder/path --app default
+```
+
+
 
 ### pubspec.yaml
 
 * 기본 앱은 `lib/main.dart`를 사용합니다. 이 때, 아래와 같이 프로젝트 설정을 해야합니다.
-  * `etc/pubspec.app.yaml` 을 `pubspec.yaml` 로 복사(또는 링크)해서 사용합니다.
-  * `etc/Info.plist` 를 `ios/Runnder/Info.plist` 로 복사(또는 링크)해서 사용합니다.
+  * `apps/default/defualt.pubspec.app.yaml` 을 `pubspec.yaml` 로 복사(또는 링크)해서 사용합니다.
+  * `apps/default/defualt.Info.plist` 를 `ios/Runnder/Info.plist` 로 복사(또는 링크)해서 사용합니다.
 * 그 외 각 엡은
   * `apps/APP_NAME/APP_NAME.pubspec.yaml` 을 `pubspec.yaml` 로 복사(또는 링크)해서 사용합니다.
   * `apps/APP_NAME/APP_NAME.plist` 를 `ios/Runnder/Info.plist` 로 복사(또는 링크)해서 사용합니다.
+
 
