@@ -96,4 +96,4 @@ flutter:
 flutter_icons:
   android: "launcher_icon" 
   ios: true
-  image_path: "assets/dev/icon/icon.png"
+  image_path: "tmp/korea_flutter_community_app_icon.png"
