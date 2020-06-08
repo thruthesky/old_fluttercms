@@ -159,7 +159,7 @@ buildscript {
   * 이 때, 각 앱 설정에 맞는 모든 변경을 다 해 주어야 합니다.
 
 * 간단하게 앱 설정을 변경하기 위해서 패치 프로그램을 만들었습니다.
-  * [Flutter Multi Apps](https://github.com/thruthesky/flutter-multi-apps) 를 참고합니다.
+  * [Flapp](https://www.npmjs.com/package/flapp) 노드 프로그램을 참고합니다.
 
 
 ### Flutter Multi Apps 로 설정
