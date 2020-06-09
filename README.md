@@ -58,9 +58,9 @@
   * 본 문서에서 설명은 `basic` branch 를 바탕으로 설명을 합니다.
 
 * 경로 변경
-  * 몇 몇 소스코드에 relative path 에 문제가 있을 수 있습니다.
-  * `import package:fluttercms` 와 같이 되어져 있다면 이를 `import package:[project_name]` 으로 변경을 합니다. (소스 파일들을 검색을 해 볼 필요가 있습니다.)
-    * 특히, `lib/models/app.model.dart` 에서 `../flutterbase/etc/flutterbase.globals.dart` 와 같이 relative path 로 지정하면 에러가 나는데, 확인을 해 볼 필요가 있습니다.
+  * ~~몇 몇 소스코드에 relative path 에 문제가 있을 수 있습니다.~~
+  * ~~`import package:fluttercms` 와 같이 되어져 있다면 이를 `import package:[project_name]` 으로 변경을 합니다. (소스 파일들을 검색을 해 볼 필요가 있습니다.)~~
+    * ~~특히, `lib/models/app.model.dart` 에서 `../flutterbase/etc/flutterbase.globals.dart` 와 같이 relative path 로 지정하면 에러가 나는데, 확인을 해 볼 필요가 있습니다.~~
 
 * `master` branch 는 launch.json 에 따라 여러 main.dart 로 분리되어져 있으니, `basic` branch 보다 약간 더 복잡 할 수 있습니다.
 
@@ -161,6 +161,12 @@ buildscript {
 * 간단하게 앱 설정을 변경하기 위해서 패치 프로그램을 만들었습니다.
   * [Flapp](https://www.npmjs.com/package/flapp) 노드 프로그램을 참고합니다.
 
+
+## Git Repo 관련
+
+* `key.properties` 파일은 .gitignore 에 등록되어 repo 에 저장되지 않는다.
+  * keystore 파일 자체는 repo 에 저장 될 수 있지만, 비밀번호가 `key.properties`에 저장되므로, 로컬 컴퓨터에만 저장되고, 원격 repo 에는 저장되지 않는다.
+  * 참고로 flapp 의 key.properties 위치에 저장을 한다.
 
 ### Flutter Multi Apps 로 설정
 
