@@ -26,13 +26,16 @@ class LoginPage extends StatelessWidget {
               width: 128,
               height: 128,
               child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Image.asset('lib/apps/korea_flutter_community/assets/icons/flutter_icon.png')),
+                padding: EdgeInsets.all(8.0),
+                child: Image.asset(
+                    'lib/apps/korea_flutter_community/assets/icons/flutter_icon.png'),
+              ),
             ),
           ),
 
           /// 로그인 성공 후 이벤트 핸들러
           onLogin: (user) => open(app.homePage),
+
           /// 에러 이벤트 핸들러
           onError: alert,
         ),

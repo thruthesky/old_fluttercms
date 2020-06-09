@@ -3,5 +3,5 @@ class Settings {
   static final bool testApp = false;
   /// Storage 의 Folder path.
   /// [Firebase => Storage => Files] 에 나오는 Folder path 를 이곳에 기록한다.
-  static final String storageLink = 'gs://korean-flutter-community.appspot.com';
+  static final String storageLink = 'gs://enginf-856e7.appspot.com';
 }
