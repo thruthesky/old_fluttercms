@@ -7,10 +7,10 @@
 
 ## 개요
 
-* 모든 앱에서 회원 가입 및 회원 정보 관리, 그리고 게시판 기능이 필요하죠.
-  * 이를 CMS(Content Management System)이라고 합니다.
-* 본 프로젝트에서는 플러터와 파이어베이스를 기본으로 하는 CMS 를 재 사용이 쉽도록 모듈화 하여, 복사해서 쓸 수 있도록 하는 것이 목표입니다.
-* 또한 게시판 기능을 확장하여 블로그나 쇼핑몰 등 다양하게 활용 할 수 있도록 합니다.
+* 모든 앱에서 회원 가입 및 회원 정보 관리, 그리고 게시판 기능이 필요합니다. 이를 CMS(Content Management System)이라고 하는데,
+* 본 프로젝트에서는  [Flutterbase](https://github.com/thruthesky/flutterbase) 라이브러리를 사용하여  파이어베이스를 기반으로 하는 간단한 CMS 예제 앱입니다.
+* 소스 코드를 쉽게 복사해서 쓸 수 있도록 하는 것이 본 프로젝트의 목표입니다.
+* 또한 게시판 기능을 확장하여 블로그나 쇼핑몰 등 다양하게 활용 할 수도 있습니다.
 
 ### 유료 서비스 안내
 
@@ -34,19 +34,22 @@
 
 * 사실, 설치라기 보다는 `활용하는 방법`에 대한 설명이라고 볼 수 있습니다.
   * 궁극적으로 `Flutterbase` 모듈에 대한 이해를 잘 해서 복사하여 사용 할 수 있도록 하는것이 목표입니다.
-* 크게 두가지 방법이 있는데,
-  * 첫째, 이미 만들어져 있는 Flutter 앱에 [Flutterbase](https://github.com/thruthesky/flutterbase)를 추가하는 방법과
-  * 둘째, `Flutterbase` 의 예제 앱인 [FlutterCMS](https://github.com/thruthesky/fluttercms)를 복사해서 사용하는 법이 있습니다.
 
-* 여기서는 `FlutterCMS`를 fork(또는 clone 이나 소스 다운로드) 한 다음 설정만 바꾸어서 사용하는 방법에 대해서 설명을 합니다.
-  * `Flutterbase` 를 추가하는 방법은 [Flutterbase](https://github.com/thruthesky/flutterbase) 문서를 참고해주세요.
+
+* 크게 두가지 방법이 있는데,
+  * 첫째, 이미 만들어져 있는 Flutter 앱에 `Flutterbase` 모듈을 추가하는 방법과
+  * 둘째, 본 프로젝트를 복사해서 사용하는 법이 있습니다.
+
+
+* 여기서는 본 프로젝트를 복사하여 설정만 바꾸어서 사용하는 방법에 대해서 설명을 합니다.
+  * 이미 만들어진 앱에 `Flutterbase` 모듈만 추가하는 방법은 [Flutterbase](https://github.com/thruthesky/flutterbase) 문서를 참고해주세요.
 
 ### 소스 다운로드
 
 * https://github.com/thruthesky/fluttercms 를 clone 합니다.
   * Pull Request를 할 계획이면 fork 후 clone 으로 하고, root 로 https://github.com/thruthesky/fluttercms 를 추가합니다.
   * 참고로 PR 을 하지 않을 계획이면 굳이 fork 하지 않고 바로 clone 하면 됩니다.
-  * 그리고 굳이 clone 할 필요없이 소스를 다운로드 해서 사용하셔도 됩니다.
+  * 그리고 굳이 clone 할 필요없이 소스를 다운로드 해서 사용하셔도 됩니다. 하지만, submodule 도 있기 때문에 clone 을 추천드립니다.
 
 * Git submodule 을 초기화 합니다.
   * `git submodule update --init`
@@ -189,3 +192,10 @@ $ ts-node src/index.ts --path /flutter/root/folder/path --app default
   * `apps/APP_NAME/APP_NAME.plist` 를 `ios/Runnder/Info.plist` 로 복사(또는 링크)해서 사용합니다.
 
 
+
+## 앱 Release 빌드 후 실행
+
+* Release 빌드 후 직접 핸드폰에서 실행하고자 한다면 .apk 파일을 생성해야 한다. 아래의 예제를 참고한다.
+
+$ flutter build apk --release -t lib/apps/korea_flutter_community/korea_flutter_community.main.dart
+$ flutter install
