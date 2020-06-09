@@ -26,6 +26,10 @@ dependencies:
   firebase_auth: ^0.16.1
   google_sign_in: ^4.4.6
 
+  ## 웹뷰. 페이스북 로그인을 할 때 필요.
+  
+  flutter_webview_plugin: ^0.3.11
+
   ## Firestore
   cloud_firestore: ^0.13.6
 

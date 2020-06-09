@@ -93,8 +93,14 @@
   * cd ios
   * pod install
 
-* 구글 Sign 하기 위해서는
+* Firebase Auth - Google Sign 하기 위해서는
+  * Firebase Sign-in Method 에서 Google Enable 합니다.
   * REVERSE_CLIENT_ID 와 Bundle ID 를 Xcode 에 등록합니다.
+
+* Firebase Auth - Facebook Sign 을 하기 위해서는
+  * Facebook 개발자 페이지에서 앱을 생성하고 Login 설정을 합니다.
+  * Firebase Sing-in Method 에서 Facebook 을 Enable 합니다.
+  * `settings.dart` 에 Facebook App ID 와 Return URL 을 기록합니다.
 
 * 앱을 실행합니다.
 
@@ -131,8 +137,12 @@ buildscript {
 }
 ```
 
-* Google Sigin 을 하기 위해서는 SHA1 fingerprint 를 등록합니다.
+* Firebase Auth - Google Sign 을 하기 위해서는 SHA1 fingerprint 를 등록합니다.
 
+* Firebase Auth - Facebook Sign 을 하기 위해서는
+  * Facebook 개발자 페이지에서 앱을 생성하고 Login 설정을 합니다.
+  * Firebase Sing-in Method 에서 Facebook 을 Enable 합니다.
+  * `settings.dart` 에 Facebook App ID 와 Return URL 을 기록합니다.
 
 
 
@@ -254,7 +264,14 @@ $ flutter install
 
 
 
-## Trouble Shooting
+## 문제 해결 Trouble Shooting
 
 * Object does not exist at location
   * Firestore folder path 가 settings.dart 에 올바로 설정되어져 있는지 확인을 한다.
+
+* Firebase 관련 에러
+  * ios/Runnder/GoogleService-Info.plist 파일이 올바로 연결되어져 있는지 본다.
+  * Bundle ID 와 Firebase 앱 ID 가 올바른지 확인한다.
+  * 예를 들어, Firebase 에 Auth Sign-in method 에서 Facebook 로그인을 활성화 했는데,
+    * `the identity provider configuration is not found` 와 같은 에러가 나면, Facebook 로그인을 활성화 하지 않았다른 것으로 GoogleService-Info.plist 가 다른 Firebase 의 것일 가능성이 크다.
+    * 참고로 VSCode 에서 ios/Runnder/GoogleService-Info.pst 와 Xcode 에 등록된 것이 서로 다를 수 있다.

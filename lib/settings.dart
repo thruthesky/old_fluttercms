@@ -4,4 +4,8 @@ class Settings {
   /// Storage 의 Folder path.
   /// [Firebase => Storage => Files] 에 나오는 Folder path 를 이곳에 기록한다.
   static final String storageLink = 'gs://enginf-856e7.appspot.com';
+
+
+  static final String facebookAppId = '204627950607047';
+  static final String facebookLoginRedirectUrl = 'https://www.facebook.com/connect/login_success.html';
 }
