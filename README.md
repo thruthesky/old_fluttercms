@@ -166,6 +166,7 @@ buildscript {
 
 * `key.properties` 파일은 .gitignore 에 등록되어 repo 에 저장되지 않는다.
   * keystore 파일 자체는 repo 에 저장 될 수 있지만, 비밀번호가 `key.properties`에 저장되므로, 로컬 컴퓨터에만 저장되고, 원격 repo 에는 저장되지 않는다.
+    * 단, private repo 인 경우, --force 옵션으로 강제 추가를 할 수 있다.
   * 참고로 flapp 의 key.properties 위치에 저장을 한다.
 
 ### Flutter Multi Apps 로 설정

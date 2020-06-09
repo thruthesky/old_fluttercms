@@ -1,4 +1,6 @@
-key.properties
+
+
+*.key.properties
 
 # Miscellaneous
 *.class
