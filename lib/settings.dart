@@ -31,7 +31,6 @@ class Settings {
   static final String facebookLoginRedirectUrl = 'https://www.facebook.com/connect/login_success.html';
 
 
-
   static init() {
 
     /// 카카오톡 로그인

@@ -1,11 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:fluttercms/flutterbase/services/flutterbase.auth.service.dart';
-import 'package:fluttercms/settings.dart';
-import 'package:kakao_flutter_sdk/all.dart';
-import 'package:kakao_flutter_sdk/auth.dart';
 import '../../services/app.globals.dart';
 import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 import '../../flutterbase/widgets/forum/flutterbase.latest_posts.dart';
@@ -29,19 +22,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  init() async {
-    // final GoogleSignIn _googleSignIn = GoogleSignIn();
-    // final FirebaseAuth _auth = FirebaseAuth.instance;
-
-    // final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
-    //   email: 'anemail@gmail.com',
-    //   password: 'a^swrd.123',
-    // ))
-    //     .user;
-    // print('user:');
-    // print(user);
-
-  }
+  init() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -61,19 +42,6 @@ class _HomePageState extends State<HomePage> {
               FlutterbaseLatestPosts(
                 route: app.postViewPage,
               ),
-              // RaisedButton(
-              //   onPressed: () => open(Routes.categoryList),
-              //   child: Text('Category List'),
-              // ),
-              // RaisedButton(
-              //   onPressed: () => open(Routes.categoryEdit),
-              //   child: Text('Category Edit'),
-              // ),
-              // RaisedButton(
-              //   onPressed: () =>
-              //       open(Routes.postList, arguments: {'id': 'discussion'}),
-              //   child: Text('Discussoin'),
-              // ),
             ],
           ),
         ),
