@@ -1,4 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttercms/flutterbase/services/flutterbase.auth.service.dart';
+import 'package:fluttercms/settings.dart';
+import 'package:kakao_flutter_sdk/all.dart';
+import 'package:kakao_flutter_sdk/auth.dart';
 import '../../services/app.globals.dart';
 import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 import '../../flutterbase/widgets/forum/flutterbase.latest_posts.dart';
@@ -33,6 +40,7 @@ class _HomePageState extends State<HomePage> {
     //     .user;
     // print('user:');
     // print(user);
+
   }
 
   @override
@@ -46,11 +54,13 @@ class _HomePageState extends State<HomePage> {
       ),
       endDrawer: AppDrawer(),
       body: FlutterbasePagePadding(
-              child: SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlutterbaseLatestPosts( route: app.postViewPage,  ),
+              FlutterbaseLatestPosts(
+                route: app.postViewPage,
+              ),
               // RaisedButton(
               //   onPressed: () => open(Routes.categoryList),
               //   child: Text('Category List'),
