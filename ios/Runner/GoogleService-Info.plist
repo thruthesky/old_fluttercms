@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>562416492819-51aauvnglk7oimse9917s0o5eu4ufovb.apps.googleusercontent.com</string>
+	<string>767572519351-qqtd8b3q3snns2b06gonl1ik5bt5qhia.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.562416492819-51aauvnglk7oimse9917s0o5eu4ufovb</string>
+	<string>com.googleusercontent.apps.767572519351-qqtd8b3q3snns2b06gonl1ik5bt5qhia</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>767572519351-g6diek3p5vqq7upjvhmn43bb11fh4d8c.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBpybxy_tgM955oerQxuj1DaRfRZLEXf80</string>
+	<string>AIzaSyB97oFI4BDM08OFxjIGk8UCuN0ZEAe88l0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>562416492819</string>
+	<string>767572519351</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.sonub.koreafluttercommunity</string>
+	<string>com.sonub.fluttercms</string>
 	<key>PROJECT_ID</key>
-	<string>korean-flutter-community</string>
+	<string>enginf-856e7</string>
 	<key>STORAGE_BUCKET</key>
-	<string>korean-flutter-community.appspot.com</string>
+	<string>enginf-856e7.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:562416492819:ios:44b4c029d1f9bee631bae6</string>
+	<string>1:767572519351:ios:8c863749e03a5350132032</string>
 	<key>DATABASE_URL</key>
-	<string>https://korean-flutter-community.firebaseio.com</string>
+	<string>https://enginf-856e7.firebaseio.com</string>
 </dict>
 </plist>
