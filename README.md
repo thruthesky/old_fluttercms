@@ -7,10 +7,10 @@
 
 ## 개요
 
-* 모든 앱에서 회원 가입 및 회원 정보 관리, 그리고 게시판 기능이 필요하죠.
-  * 이를 CMS(Content Management System)이라고 합니다.
-* 본 프로젝트에서는 플러터와 파이어베이스를 기본으로 하는 CMS 를 재 사용이 쉽도록 모듈화 하여, 복사해서 쓸 수 있도록 하는 것이 목표입니다.
-* 또한 게시판 기능을 확장하여 블로그나 쇼핑몰 등 다양하게 활용 할 수 있도록 합니다.
+* 모든 앱에서 회원 가입 및 회원 정보 관리, 그리고 게시판 기능이 필요합니다. 이를 CMS(Content Management System)이라고 하는데,
+* 본 프로젝트에서는  [Flutterbase](https://github.com/thruthesky/flutterbase) 라이브러리를 사용하여  파이어베이스를 기반으로 하는 간단한 CMS 예제 앱입니다.
+* 소스 코드를 쉽게 복사해서 쓸 수 있도록 하는 것이 본 프로젝트의 목표입니다.
+* 또한 게시판 기능을 확장하여 블로그나 쇼핑몰 등 다양하게 활용 할 수도 있습니다.
 
 ### 유료 서비스 안내
 
@@ -34,19 +34,22 @@
 
 * 사실, 설치라기 보다는 `활용하는 방법`에 대한 설명이라고 볼 수 있습니다.
   * 궁극적으로 `Flutterbase` 모듈에 대한 이해를 잘 해서 복사하여 사용 할 수 있도록 하는것이 목표입니다.
-* 크게 두가지 방법이 있는데,
-  * 첫째, 이미 만들어져 있는 Flutter 앱에 [Flutterbase](https://github.com/thruthesky/flutterbase)를 추가하는 방법과
-  * 둘째, `Flutterbase` 의 예제 앱인 [FlutterCMS](https://github.com/thruthesky/fluttercms)를 복사해서 사용하는 법이 있습니다.
 
-* 여기서는 `FlutterCMS`를 fork(또는 clone 이나 소스 다운로드) 한 다음 설정만 바꾸어서 사용하는 방법에 대해서 설명을 합니다.
-  * `Flutterbase` 를 추가하는 방법은 [Flutterbase](https://github.com/thruthesky/flutterbase) 문서를 참고해주세요.
+
+* 크게 두가지 방법이 있는데,
+  * 첫째, 이미 만들어져 있는 Flutter 앱에 `Flutterbase` 모듈을 추가하는 방법과
+  * 둘째, 본 프로젝트를 복사해서 사용하는 법이 있습니다.
+
+
+* 여기서는 본 프로젝트를 복사하여 설정만 바꾸어서 사용하는 방법에 대해서 설명을 합니다.
+  * 이미 만들어진 앱에 `Flutterbase` 모듈만 추가하는 방법은 [Flutterbase](https://github.com/thruthesky/flutterbase) 문서를 참고해주세요.
 
 ### 소스 다운로드
 
 * https://github.com/thruthesky/fluttercms 를 clone 합니다.
   * Pull Request를 할 계획이면 fork 후 clone 으로 하고, root 로 https://github.com/thruthesky/fluttercms 를 추가합니다.
   * 참고로 PR 을 하지 않을 계획이면 굳이 fork 하지 않고 바로 clone 하면 됩니다.
-  * 그리고 굳이 clone 할 필요없이 소스를 다운로드 해서 사용하셔도 됩니다.
+  * 그리고 굳이 clone 할 필요없이 소스를 다운로드 해서 사용하셔도 됩니다. 하지만, submodule 도 있기 때문에 clone 을 추천드립니다.
 
 * Git submodule 을 초기화 합니다.
   * `git submodule update --init`
@@ -56,6 +59,7 @@
   * `git checkout basic`
   * `basic` branch 에는 가장 간단한 코드들이 들어가 있으므로 재 활용하기가 편할 것입니다.
   * 본 문서에서 설명은 `basic` branch 를 바탕으로 설명을 합니다.
+  * `basic` branch 에서 필요한 소스 코드만 복사해서 사용하셔도 됩니다.
 
 * 경로 변경
   * ~~몇 몇 소스코드에 relative path 에 문제가 있을 수 있습니다.~~
@@ -66,12 +70,16 @@
 
 ### Firebase 설정
 
+* Firebase 를 기반으로 동작하므로, Firebase 설정이 필요합니다.
+
 * [Flutterbase Firebase 설정](https://github.com/thruthesky/flutterbase#firebase-%EC%84%A4%EC%A0%95)에서 설명된데로 하면 됩니다.
 
 
 ### 프로젝트 설정
 
 * [Flutterbase settings.dart 설정](https://github.com/thruthesky/flutterbase#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%A4%EC%A0%95) 을 참고해서 settings.dart 파일을 수정한다.
+
+
 
 ### iOS 설치 예제
 
@@ -84,6 +92,15 @@
 * pod 설치를 합니다.
   * cd ios
   * pod install
+
+* Firebase Auth - Google Sign 하기 위해서는
+  * Firebase Sign-in Method 에서 Google Enable 합니다.
+  * REVERSE_CLIENT_ID 와 Bundle ID 를 Xcode 에 등록합니다.
+
+* Firebase Auth - Facebook Sign 을 하기 위해서는
+  * Facebook 개발자 페이지에서 앱을 생성하고 Login 설정을 합니다.
+  * Firebase Sing-in Method 에서 Facebook 을 Enable 합니다.
+  * `settings.dart` 에 Facebook App ID 와 Return URL 을 기록합니다.
 
 * 앱을 실행합니다.
 
@@ -120,6 +137,14 @@ buildscript {
 }
 ```
 
+* Firebase Auth - Google Sign 을 하기 위해서는 SHA1 fingerprint 를 등록합니다.
+
+* Firebase Auth - Facebook Sign 을 하기 위해서는
+  * Facebook 개발자 페이지에서 앱을 생성하고 Login 설정을 합니다.
+  * Firebase Sing-in Method 에서 Facebook 을 Enable 합니다.
+  * `settings.dart` 에 Facebook App ID 와 Return URL 을 기록합니다.
+
+
 
 ### iOS 와 Android 설정을 마친 후
 
@@ -150,10 +175,15 @@ buildscript {
 
 
 
-## master 브랜치 사용 설명
+## Multi App (master 브랜치) 사용 설명
 
-* master 브랜치는 .vscode/launch.json 에 설정을 통해서 여러 `min.dart`로 분리해서 각 앱 마다 UI 를 변경해 가면서 테스트를 했습니다.
+
+* `master` 브랜치에는 멀티앱으로 이것 저것 많은 기능이 포함되어져 있습니다.
+  * Multi App 은 앱의 코드나 기능이 완전히 동일한 경우, 앱의 껍데기(UI 디자인)만 바꾸어서 앱 배포(출시)하는 경우, 유용하게 사용 할 수 있습니다.
+  * .vscode/launch.json 에 설정을 통해서 여러 `min.dart`로 분리해서 각 앱 마다 UI 를 변경해 가면서 테스트를 했습니다.
 * 그래서 각 앱마다 `main.dart` 가 다르고, `pubspec.yaml` 도 다릅니다.
+  * 또한 Kakaotalk 로그인이나 Naver 로그인 기능이 있어서, 이것 저것 많은 설정을 해야 합니다.
+  * 그래서 회원관리 + 게시판 기능만 복사해서 쓰고자 한다면 `basic` branch 의 소스를 보시기 바랍니다.
 * launch.json 에서 `Flutter` 를 실행하면 기본 앱이 실행되지만,
   * pubspec.yaml 이나 Info.plist 등은 기본 파일의 것이 아닐 수 있습니다.
   * 이 때, 각 앱 설정에 맞는 모든 변경을 다 해 주어야 합니다.
@@ -161,20 +191,19 @@ buildscript {
 * 간단하게 앱 설정을 변경하기 위해서 패치 프로그램을 만들었습니다.
   * [Flapp](https://www.npmjs.com/package/flapp) 노드 프로그램을 참고합니다.
 
+* 특히 Multi App 을 사용하는 경우,
+  * Firebase 프로젝트를 따로 할 필요 없이 하나로 할 수 있습니다.
+    * 앱 마다 게시판을 다르게 설정 할 수 있으며,
+    * 앱 마다 커스터마이징을 해서 껍데기만 바꿀 수 있습니다.
+
+
 
 ## Git Repo 관련
 
 * `key.properties` 파일은 .gitignore 에 등록되어 repo 에 저장되지 않는다.
   * keystore 파일 자체는 repo 에 저장 될 수 있지만, 비밀번호가 `key.properties`에 저장되므로, 로컬 컴퓨터에만 저장되고, 원격 repo 에는 저장되지 않는다.
+    * 단, private repo 인 경우, --force 옵션으로 강제 추가를 할 수 있다.
   * 참고로 flapp 의 key.properties 위치에 저장을 한다.
-
-### Flutter Multi Apps 로 설정
-
-* 아래와 같이 명령하면 기본 `lib/main.dart` 를 위한 설정을 한다.
-
-```
-$ ts-node src/index.ts --path /flutter/root/folder/path --app default
-```
 
 
 
@@ -188,3 +217,64 @@ $ ts-node src/index.ts --path /flutter/root/folder/path --app default
   * `apps/APP_NAME/APP_NAME.plist` 를 `ios/Runnder/Info.plist` 로 복사(또는 링크)해서 사용합니다.
 
 
+## 멀티 앱 배포
+
+* 먼저 아래와 같이 앱 배포 준비를 합니다.
+
+  * package name 또는 Bundle ID 조정
+  * 앱 이름 작성
+  * 앱 아이콘 작성
+  * 스플래시 화면 작성
+  * Key store 준비 등 여러가지 준비가 필요합니다.
+
+  * 이러한 작업을 간단하게 하기 위해서 [flapp](https://www.npmjs.com/package/flapp) 을 사용합니다.
+
+* pubspeck 의 버전 수정
+
+* 그리고 각 앱 별로 패키징 합니다.
+
+### Android 에서 패키징
+
+* Firebase Auth 구글 Sign in 을 하는 경우, 릴리스용 SHA-1 print 등록
+
+
+* $ flapp --app APP_NAME
+
+* App bundle 생성
+  * flutter build appbundle -t lib/apps/korea_flutter_community/korea_flutter_community.main.dart
+  * 그리고 Playstore 에 등록
+
+* APK 생성
+  * flutter build apk --release -t lib/apps/korea_flutter_community/korea_flutter_community.main.dart
+  * 그리고 flutter install 로 핸드폰에 실행
+
+
+### iOS 에서 패키징
+
+* $ flapp --app APP_NAME
+* Xcode 에서 배포
+
+
+
+
+## 앱 Release 빌드 후 실행
+
+* Release 빌드 후 직접 핸드폰에서 실행하고자 한다면 .apk 파일을 생성해야 한다. 아래의 예제를 참고한다.
+
+$ flutter build apk --release -t lib/apps/korea_flutter_community/korea_flutter_community.main.dart
+$ flutter install
+
+
+
+
+## 문제 해결 Trouble Shooting
+
+* Object does not exist at location
+  * Firestore folder path 가 settings.dart 에 올바로 설정되어져 있는지 확인을 한다.
+
+* Firebase 관련 에러
+  * ios/Runnder/GoogleService-Info.plist 파일이 올바로 연결되어져 있는지 본다.
+  * Bundle ID 와 Firebase 앱 ID 가 올바른지 확인한다.
+  * 예를 들어, Firebase 에 Auth Sign-in method 에서 Facebook 로그인을 활성화 했는데,
+    * `the identity provider configuration is not found` 와 같은 에러가 나면, Facebook 로그인을 활성화 하지 않았다른 것으로 GoogleService-Info.plist 가 다른 Firebase 의 것일 가능성이 크다.
+    * 참고로 VSCode 에서 ios/Runnder/GoogleService-Info.pst 와 Xcode 에 등록된 것이 서로 다를 수 있다.

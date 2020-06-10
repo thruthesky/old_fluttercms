@@ -22,18 +22,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  init() async {
-    // final GoogleSignIn _googleSignIn = GoogleSignIn();
-    // final FirebaseAuth _auth = FirebaseAuth.instance;
-
-    // final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
-    //   email: 'anemail@gmail.com',
-    //   password: 'a^swrd.123',
-    // ))
-    //     .user;
-    // print('user:');
-    // print(user);
-  }
+  init() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -46,24 +35,13 @@ class _HomePageState extends State<HomePage> {
       ),
       endDrawer: AppDrawer(),
       body: FlutterbasePagePadding(
-              child: SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlutterbaseLatestPosts( route: app.postViewPage,  ),
-              // RaisedButton(
-              //   onPressed: () => open(Routes.categoryList),
-              //   child: Text('Category List'),
-              // ),
-              // RaisedButton(
-              //   onPressed: () => open(Routes.categoryEdit),
-              //   child: Text('Category Edit'),
-              // ),
-              // RaisedButton(
-              //   onPressed: () =>
-              //       open(Routes.postList, arguments: {'id': 'discussion'}),
-              //   child: Text('Discussoin'),
-              // ),
+              FlutterbaseLatestPosts(
+                route: app.postViewPage,
+              ),
             ],
           ),
         ),

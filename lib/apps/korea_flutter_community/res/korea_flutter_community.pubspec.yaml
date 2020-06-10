@@ -1,6 +1,7 @@
-name: korea_flutter_community
+name: koreafluttercommunity
 description: A new Flutter project.
-version: 1.0.0+1
+version: 1.0.2+2
+
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -24,6 +25,10 @@ dependencies:
   ## Firebase 로그인
   firebase_auth: ^0.16.1
   google_sign_in: ^4.4.6
+
+  ## 웹뷰. 페이스북 로그인을 할 때 필요.
+  
+  flutter_webview_plugin: ^0.3.11
 
   ## Firestore
   cloud_firestore: ^0.13.6
@@ -67,9 +72,20 @@ dependencies:
   ## Font Awesome Icons
   font_awesome_flutter: ^8.8.1
 
+  ## Kakaotalk Login
+  dio: ^3.0.9
+  json_annotation: ^3.0.1
+  package_info: ^0.4.1
+  platform: ^2.2.1
+  shared_preferences: ^0.5.7+3
+  kakao_flutter_sdk: ^0.4.2
+
+
   ## ---- 이하 한국 플러터 커뮤니티 전용 ----
   webview_flutter: ^0.3.22+1
   url_launcher: ^5.4.10
+
+
 
 dev_dependencies:
   flutter_test:
@@ -90,6 +106,7 @@ flutter:
     - lib/apps/korea_flutter_community/assets/icons/flutter_icon.png
     - lib/apps/korea_flutter_community/assets/icons/youtube_icon.png
     - lib/apps/korea_flutter_community/assets/icons/kakaotalk_icon.png
+    - lib/apps/korea_flutter_community/assets/icons/kakaotalk_social_login_icon.png
 
 
 ## 한국 플러터 커뮤니티

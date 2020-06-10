@@ -1,4 +1,7 @@
-key.properties
+
+
+android/key.properties
+*.key.properties
 
 # Miscellaneous
 *.class

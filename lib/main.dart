@@ -12,7 +12,6 @@ import './flutterbase/etc/flutterbase.app.localization.dart';
 import './flutterbase/etc/flutterbase.defines.dart';
 import './flutterbase/etc/flutterbase.globals.dart';
 import './flutterbase/tests/flutterbase.test.dart';
-import './services/app.defines.dart';
 import './services/app.globals.dart';
 import './services/app.router.dart';
 import './settings.dart';
@@ -22,8 +21,10 @@ void main() async {
   ///
   /// TODO: `Hive.initFlutter();` 코드는 반드시 여기에 위치해야 하는데, `Flutter Engine` 에서 assert 처리를 한다.
   /// TODO: 2020. 06. 06. 현재 Hive 를 사용하지 않음.
-  await Hive.initFlutter();
-  await Hive.openBox(CACHE_BOX);
+  // await Hive.initFlutter();
+  // await Hive.openBox(CACHE_BOX);
+
+  Settings.init();
   runApp(TheApp());
 }
 
