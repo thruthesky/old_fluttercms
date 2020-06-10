@@ -1,6 +1,6 @@
 import 'package:kakao_flutter_sdk/link.dart';
 
-/// korea flutter community settings
+/// default settings
 /// 
 class Settings {
 
