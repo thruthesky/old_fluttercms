@@ -6,7 +6,7 @@
                 "lib/apps/default/res/default.pubspec.yaml": "pubspec.yaml",
                 "lib/apps/default/res/default.Info.plist": "ios/Runner/Info.plist",
                 "lib/apps/default/res/default.GoogleService-Info.plist": "ios/Runner/GoogleService-Info.plist",
-                "lib/apps/default/res/default.google-services.json": "android/app/google-service.json",
+                "lib/apps/default/res/default.google-services.json": "android/app/google-services.json",
                 "lib/apps/default/res/default.key.properties": "android/key.properties",
                 "lib/apps/default/default.settings.dart": "lib/settings.dart"
             },
@@ -20,7 +20,7 @@
                 "lib/apps/korea_flutter_community/res/korea_flutter_community.pubspec.yaml": "pubspec.yaml",
                 "lib/apps/korea_flutter_community/res/korea_flutter_community.Info.plist": "ios/Runner/Info.plist",
                 "lib/apps/korea_flutter_community/res/korea_flutter_community.GoogleService-Info.plist": "ios/Runner/GoogleService-Info.plist",
-                "lib/apps/korea_flutter_community/res/korea_flutter_community.google-services.json": "android/app/google-service.json",
+                "lib/apps/korea_flutter_community/res/korea_flutter_community.google-services.json": "android/app/google-services.json",
                 "lib/apps/korea_flutter_community/res/korea_flutter_community.key.properties": "android/key.properties",
                 "lib/apps/korea_flutter_community/korea_flutter_community.settings.dart": "lib/settings.dart"
             },
