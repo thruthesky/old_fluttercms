@@ -5,6 +5,9 @@
 * 개발자: 송재호 thruthesky@gmail.com
 * 버전: 0.1.0
 
+//// 여기서부터: korea_flutter_community 에서 소셜 로그인을 할 수 있도록, 해시키 등록, 앱 등록을 하고,
+배포를 한다.
+
 ## 개요
 
 * 모든 앱에서 회원 가입 및 회원 정보 관리, 그리고 게시판 기능이 필요합니다. 이를 CMS(Content Management System)이라고 하는데,
@@ -252,6 +255,7 @@ buildscript {
 ### iOS 에서 패키징
 
 * $ flapp --app APP_NAME
+* $ flutter build ios --release -t ...
 * Xcode 에서 배포
 
 
