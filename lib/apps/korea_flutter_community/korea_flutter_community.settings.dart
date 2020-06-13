@@ -1,5 +1,5 @@
 import 'package:kakao_flutter_sdk/link.dart';
-import 'package:koreafluttercommunity/services/app.globals.dart';
+import '../../services/app.globals.dart';
 
 /// korea flutter community settings
 /// 

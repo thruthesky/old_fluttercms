@@ -1,4 +1,5 @@
 import 'package:kakao_flutter_sdk/link.dart';
+import './services/app.globals.dart';
 
 /// default settings
 /// 
@@ -31,6 +32,18 @@ class Settings {
   /// 페이스북 앱 아이디와 redirect url.
   static final String facebookAppId = '204627950607047';
   static final String facebookLoginRedirectUrl = 'https://www.facebook.com/connect/login_success.html';
+
+
+  /// 푸시 알림.
+  /// 
+  /// 모든 사용자가 기본적으로 가입하는 전체 토픽이다.
+  static String fcmTopic = 'koreafluttercommunity';
+
+
+
+  /// 글 읽기 라우트
+  static String postViewRoute = app.postViewPage;
+
 
 
   static init() {

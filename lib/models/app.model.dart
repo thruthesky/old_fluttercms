@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:koreafluttercommunity/apps/korea_flutter_community/korea_flutter_community.settings.dart';
-import 'package:koreafluttercommunity/flutterbase/services/flutterbase.push_notification.service.dart';
+import '../apps/korea_flutter_community/korea_flutter_community.settings.dart';
+import '../flutterbase/services/flutterbase.push_notification.service.dart';
 
 import '../flutterbase/etc/flutterbase.globals.dart';
 
