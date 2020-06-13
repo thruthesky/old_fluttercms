@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import './korea_flutter_community.settings.dart';
+import '../../settings.dart';
 import './services/korea_flutter_community.router.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,6 @@ import '../../flutterbase/etc/flutterbase.defines.dart';
 import '../../flutterbase/etc/flutterbase.globals.dart';
 import '../../flutterbase/tests/flutterbase.test.dart';
 import '../../services/app.globals.dart';
-import './../../models/app.model.dart';
 
 void main() async {
   /// Hive 를 준비한다.
@@ -25,7 +24,7 @@ void main() async {
   await Hive.initFlutter();
   await Hive.openBox(CACHE_BOX);
 
-  app = AppModel(settings: Settings());
+  // app = AppModel();
   // app.settings = Settings();
   runApp(TheApp());
 }
@@ -64,7 +63,7 @@ class _TheAppState extends State<TheApp> {
     //   }
     // });
 
-    if (kDebugMode && app.settings.testApp) {
+    if (kDebugMode && Settings.testApp) {
       FlutterbaseTest();
     }
 

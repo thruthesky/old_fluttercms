@@ -20,7 +20,6 @@ void main() async {
   // await Hive.initFlutter();
   // await Hive.openBox(CACHE_BOX);
 
-  app.settings = Settings();
   runApp(TheApp());
 }
 
@@ -59,7 +58,7 @@ class _TheAppState extends State<TheApp> {
     //   }
     // });
 
-    if (kDebugMode && app.settings.testApp) {
+    if (kDebugMode && Settings.testApp) {
       FlutterbaseTest();
     }
 

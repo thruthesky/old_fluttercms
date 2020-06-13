@@ -15,9 +15,7 @@ class AppModel extends ChangeNotifier {
   /// false - closed
   bool drawer = false;
 
-  var settings;
-
-  AppModel({this.settings}) {
+  AppModel() {
 
     init();
   }
