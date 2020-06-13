@@ -18,7 +18,7 @@
 		<string>zh</string>
 	</array>
 	<key>CFBundleName</key>
-	<string>플러터 커뮤니티</string>
+	<string>플러터CMS</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -40,7 +40,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.sonub.koreafluttercommunity</string>
+				<string>com.sonub.fluttercms</string>
 			</array>
 		</dict>
 		<dict>
@@ -48,7 +48,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>c298da0e317591a81877124ee41160f7</string>
+				<string>493bed08b60ce32541bd5c8c64b20de5</string>
 			</array>
 		</dict>
 	</array>
@@ -56,6 +56,13 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>This app requires access to the Camera to take images for posting on its forum and updating user profile.</string>
 	<key>NSContactsUsageDescription</key>
@@ -83,7 +90,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>io.flutter.embedded_views_preview</key>
-	<string>YES</string>
 </dict>
 </plist>

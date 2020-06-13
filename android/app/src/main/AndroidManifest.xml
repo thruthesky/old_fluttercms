@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sonub.koreafluttercommunity">
+    package="com.sonub.fluttercms">
 
     <uses-permission android:name="android.permission.CAMERA" />
     
@@ -10,7 +10,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="한국플러터"
+        android:label="플러터CMS"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

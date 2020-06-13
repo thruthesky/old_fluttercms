@@ -2,6 +2,7 @@
     "apps": {
         "fluttercms": {
             "AppId": "com.sonub.fluttercms",
+            "name": "플러터CMS",
             "files": {
                 "lib/apps/fluttercms/res/fluttercms.pubspec.yaml": "pubspec.yaml",
                 "lib/apps/fluttercms/res/fluttercms.Info.plist": "ios/Runner/Info.plist",
@@ -16,6 +17,7 @@
         },
         "korea_flutter_community": {
             "AppId": "com.sonub.koreafluttercommunity",
+            "name": "플러터 커뮤니티",
             "files": {
                 "lib/apps/korea_flutter_community/res/korea_flutter_community.pubspec.yaml": "pubspec.yaml",
                 "lib/apps/korea_flutter_community/res/korea_flutter_community.Info.plist": "ios/Runner/Info.plist",
