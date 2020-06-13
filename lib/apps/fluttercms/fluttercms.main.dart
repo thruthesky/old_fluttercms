@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import './fluttercms.settings.dart';
 import 'package:provider/provider.dart';
 
-import './flutterbase/etc/flutterbase.app.localization.dart';
-import './flutterbase/etc/flutterbase.globals.dart';
-import './flutterbase/tests/flutterbase.test.dart';
-import './services/app.globals.dart';
-import './services/app.router.dart';
-import './settings.dart';
+import '../../flutterbase/etc/flutterbase.app.localization.dart';
+import '../../flutterbase/etc/flutterbase.globals.dart';
+import '../../flutterbase/tests/flutterbase.test.dart';
+import '../../services/app.globals.dart';
+import '../../services/app.router.dart';
 
 void main() async {
   /// Hive 를 준비한다.
@@ -20,6 +20,7 @@ void main() async {
   // await Hive.initFlutter();
   // await Hive.openBox(CACHE_BOX);
 
+  app.settings = Settings();
   runApp(TheApp());
 }
 
@@ -31,7 +32,6 @@ class TheApp extends StatefulWidget {
 class _TheAppState extends State<TheApp> {
   @override
   void initState() {
-
     /// 테스트 용도
     ///
     /// 앱이 부팅하자 마자 게시판 카테고리로 이동하게 한다.
@@ -59,7 +59,7 @@ class _TheAppState extends State<TheApp> {
     //   }
     // });
 
-    if (kDebugMode && Settings.testApp) {
+    if (kDebugMode && app.settings.testApp) {
       FlutterbaseTest();
     }
 

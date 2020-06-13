@@ -15,10 +15,14 @@ class AppModel extends ChangeNotifier {
   /// false - closed
   bool drawer = false;
 
-  AppModel() {
-    Settings.init();
-    assert(Settings.initialized,
-        'Settings not initialized. Call it on the very beging of startup.');
+  var settings;
+
+  AppModel({this.settings}) {
+
+    init();
+  }
+
+  init() {
 
     var push = FlutterbasePushNotificationService();
     push.init();

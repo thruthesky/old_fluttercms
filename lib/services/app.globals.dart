@@ -5,7 +5,7 @@ import '../models/app.model.dart';
 
 
 /// 글로벌 영역에서 instance 를 생성하고, 전체 앱에서 공유를 한다.
-AppModel app = AppModel();
+AppModel app;
 
 
 Map<dynamic, dynamic> routerArguments(context) {
