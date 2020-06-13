@@ -1,17 +1,17 @@
 {
     "apps": {
-        "default": {
+        "fluttercms": {
             "AppId": "com.sonub.fluttercms",
             "files": {
-                "lib/apps/default/res/default.pubspec.yaml": "pubspec.yaml",
-                "lib/apps/default/res/default.Info.plist": "ios/Runner/Info.plist",
-                "lib/apps/default/res/default.GoogleService-Info.plist": "ios/Runner/GoogleService-Info.plist",
-                "lib/apps/default/res/default.google-services.json": "android/app/google-services.json",
-                "lib/apps/default/res/default.key.properties": "android/key.properties",
-                "lib/apps/default/default.settings.dart": "lib/settings.dart"
+                "lib/apps/fluttercms/res/fluttercms.pubspec.yaml": "pubspec.yaml",
+                "lib/apps/fluttercms/res/fluttercms.Info.plist": "ios/Runner/Info.plist",
+                "lib/apps/fluttercms/res/fluttercms.GoogleService-Info.plist": "ios/Runner/GoogleService-Info.plist",
+                "lib/apps/fluttercms/res/fluttercms.google-services.json": "android/app/google-services.json",
+                "lib/apps/fluttercms/res/fluttercms.key.properties": "android/key.properties",
+                "lib/apps/fluttercms/fluttercms.settings.dart": "lib/settings.dart"
             },
             "folders": {
-                "lib/apps/default/res/splash-images": "android/app/src/main/res"
+                "lib/apps/fluttercms/res/fluttercms.splash-images": "android/app/src/main/res"
             }
         },
         "korea_flutter_community": {
@@ -25,7 +25,7 @@
                 "lib/apps/korea_flutter_community/korea_flutter_community.settings.dart": "lib/settings.dart"
             },
             "folders": {
-                "lib/apps/korea_flutter_community/res/splash-images": "android/app/src/main/res"
+                "lib/apps/korea_flutter_community/res/korea_flutter_community.splash-images": "android/app/src/main/res"
             }
         }
     },

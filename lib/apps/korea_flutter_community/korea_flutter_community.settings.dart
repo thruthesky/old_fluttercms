@@ -8,14 +8,14 @@ import 'package:kakao_flutter_sdk/link.dart';
 ///
 /// 이 설정 파일은 Flutterbase 에서 사용하기 위한 것이다.
 class Settings {
-  bool initialized = false;
+  static bool initialized = false;
 
   /// 테스트를 하고자 한다면 [testApp] 을 true 로 지정한다.
-  final bool testApp = false;
+  static final bool testApp = false;
 
   /// Storage 의 Folder path.
   /// [Firebase => Storage => Files] 에 나오는 Folder path 를 이곳에 기록한다.
-  final String storageLink = 'gs://korean-flutter-community.appspot.com';
+  static final String storageLink = 'gs://korean-flutter-community.appspot.com';
 
   /// 비밀키.
   ///
@@ -29,19 +29,19 @@ class Settings {
   /// 하지만 그래도, 아래의 값이 노출되면 굉장히 위험하다.
   ///
   /// 만약, 이메일과 비밀번호로 로그인을 하지 못하게 막고 오직 소셜 로그인만 하게 한다면, 보다 안전하게 된다.
-  final String secretKey = '_.Oo_x,~Wc0742PCqnoo,?g!';
+  static final String secretKey = '_.Oo_x,~Wc0742PCqnoo,?g!';
 
   /// 페이스북 로그인
   ///
   /// 페이스북 앱 아이디와 redirect url.
-  final String facebookAppId = '204627950607047';
-  final String facebookLoginRedirectUrl =
+  static final String facebookAppId = '204627950607047';
+  static final String facebookLoginRedirectUrl =
       'https://www.facebook.com/connect/login_success.html';
 
   /// 푸시 알림.
   ///
   /// 모든 사용자가 기본적으로 가입하는 전체 토픽이다.
-  String fcmTopic = 'koreafluttercommunity';
+  static String fcmTopic = 'koreafluttercommunity';
 
   /// 글 읽기 라우트
   static String postViewRoute = 'postView';
