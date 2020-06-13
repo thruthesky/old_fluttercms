@@ -288,6 +288,10 @@ $ flutter build apk --release -t lib/apps/korea_flutter_community/korea_flutter_
 $ flutter install
 
 
+## 주의 사항
+
+* `APP_NAME.settings.dart` 는 hard link 되기 때문에 `import ../..` 와 같은 상대 경로를 지정하면 경로 문제가 생길 수 있다.
+  * 따라서 가능한 package import 외에는 import 를 하지 않는다.
 
 
 ## 문제 해결 Trouble Shooting

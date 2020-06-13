@@ -1,6 +1,9 @@
 import 'package:kakao_flutter_sdk/link.dart';
-import 'package:koreafluttercommunity/services/app.globals.dart';
 
+
+/// 멀티 앱 설정 파일
+/// 
+/// README 참고
 /// korea flutter community settings
 /// 
 /// 이 설정 파일은 Flutterbase 에서 사용하기 위한 것이다.
@@ -45,7 +48,7 @@ class Settings {
 
 
   /// 글 읽기 라우트
-  static String postViewRoute = app.postViewPage;
+  static String postViewRoute = 'postView';
 
 
 

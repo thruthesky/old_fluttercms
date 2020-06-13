@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:koreafluttercommunity/flutterbase/etc/flutterbase.globals.dart';
-import 'package:koreafluttercommunity/flutterbase/widgets/flutterbase.spinner.dart';
+import '../../flutterbase/etc/flutterbase.globals.dart';
+import '../../flutterbase/widgets/flutterbase.spinner.dart';
 import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 import '../../flutterbase/etc/flutterbase.post.helper.dart';
 import 'package:provider/provider.dart';
