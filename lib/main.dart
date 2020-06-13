@@ -5,11 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-
 import './flutterbase/etc/flutterbase.app.localization.dart';
-import './flutterbase/etc/flutterbase.defines.dart';
 import './flutterbase/etc/flutterbase.globals.dart';
 import './flutterbase/tests/flutterbase.test.dart';
 import './services/app.globals.dart';
@@ -24,7 +20,6 @@ void main() async {
   // await Hive.initFlutter();
   // await Hive.openBox(CACHE_BOX);
 
-  Settings.init();
   runApp(TheApp());
 }
 
@@ -36,11 +31,13 @@ class TheApp extends StatefulWidget {
 class _TheAppState extends State<TheApp> {
   @override
   void initState() {
+
     /// 테스트 용도
     ///
     /// 앱이 부팅하자 마자 게시판 카테고리로 이동하게 한다.
     /// 게시판 목록에서 작업을 할 때 편리.
     Timer(Duration(milliseconds: 100), () async {
+      // snackBar(title: 'hi', message: 'how are you?');
       // await openForumBox(
       //   FlutterbasePostEditForm(id: 'qna'),
       // );

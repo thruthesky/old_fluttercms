@@ -200,6 +200,22 @@ buildscript {
     * 앱 마다 커스터마이징을 해서 껍데기만 바꿀 수 있습니다.
 
 
+## Push Notification
+
+* `settings.dart` 에 topic 을 수정합니다.
+* 파이어베이스 콘솔에서 보는 방법
+  * title, body 에는 제목과 내용을 입력하면 됩니다.
+  * target => topic 에 `settigns.dart` 에 지정한 topic 으로 입력합니다.
+  * Scheduling 에는 Now 를 입력합니다.
+  * Additional options 에는
+    * click_action: FLUTTER_NOTIFICATION_CLICK 을 입력합니다.
+    * tpye: snackbar 또는 dialog 둘 중 하나를 입력합니다.
+      * snackbar 는 시간이 지나면 자동으로 사라지만,
+      * dialog 는 사용자가 반드시 확인 버튼을 눌러야합니다.
+      * postId: 글 ID 를 입력합니다.
+
+
+
 
 ## Git Repo 관련
 
@@ -244,15 +260,18 @@ buildscript {
 * $ flapp --app APP_NAME
 
 * App bundle 생성
+  * -t 와 같이 target 을 지정해서, 빌드하면 된다.
   * flutter build appbundle -t lib/apps/korea_flutter_community/korea_flutter_community.main.dart
   * 그리고 Playstore 에 등록
 
-* APK 생성
+* APK 생성. 릴리스 버전으로 빌드해서, 테스트.
   * flutter build apk --release -t lib/apps/korea_flutter_community/korea_flutter_community.main.dart
   * 그리고 flutter install 로 핸드폰에 실행
 
 
 ### iOS 에서 패키징
+
+* Xcode => Runner ==> Info ==> Bundle ID 를 확인합니다. 특히, flapp 이 자동으로 바꾸지 않을 수 있습니다.
 
 * $ flapp --app APP_NAME
 * $ flutter build ios --release -t ...

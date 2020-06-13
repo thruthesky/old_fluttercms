@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:koreafluttercommunity/apps/korea_flutter_community/korea_flutter_community.settings.dart';
+import 'package:koreafluttercommunity/flutterbase/services/flutterbase.push_notification.service.dart';
 
 import '../flutterbase/etc/flutterbase.globals.dart';
-
-
 
 /// 앱 모델
 ///
@@ -15,10 +15,17 @@ class AppModel extends ChangeNotifier {
   /// false - closed
   bool drawer = false;
 
-  AppModel();
+  AppModel() {
+    Settings.init();
+    assert(Settings.initialized,
+        'Settings not initialized. Call it on the very beging of startup.');
+
+    var push = FlutterbasePushNotificationService();
+    push.init();
+  }
 
   /// 라우트 정의
-  /// 
+  ///
   /// 필요에 따라 변경해서 사용하면 된다.
   String homePage = 'home';
   String registerPage = 'register';

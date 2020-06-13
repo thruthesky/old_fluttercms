@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:koreafluttercommunity/flutterbase/etc/flutterbase.globals.dart';
+import 'package:koreafluttercommunity/flutterbase/widgets/flutterbase.spinner.dart';
 import '../../flutterbase/widgets/flutterbase.page_padding.dart';
 import '../../flutterbase/etc/flutterbase.post.helper.dart';
 import 'package:provider/provider.dart';
@@ -18,18 +22,35 @@ class PostViewPage extends StatefulWidget {
 class _PostViewPageState extends State<PostViewPage> {
   FlutterbaseForumModel forum = FlutterbaseForumModel();
   FlutterbasePostModel postModel;
+  FlutterbasePost post;
 
   @override
   void initState() {
+    Timer(Duration(milliseconds: 300), () async {
+      var _args = routerArguments(context);
+      print('args: $_args');
+      post = _args['post'];
+      if (post != null) {
+        // 글이 전달되면 그 글을 사용
+      } else if (_args['postId'] != null) {
+        // 글 ID 가 입력되었으면, 글을 가져옴
+        post = await fb.postGet(_args['postId']);
+      } else {
+        alert('FlutterbasePost 또는 postId 가 입력되어야합니다.');
+      }
+
+      forum.posts = [post];
+      postModel = FlutterbasePostModel(post: post);
+
+      setState(() {
+        /// 업데이트
+      });
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    var _args = routerArguments(context);
-    FlutterbasePost post = _args['post'];
-    forum.posts = [post];
-    postModel = FlutterbasePostModel(post: post);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => forum),
@@ -37,18 +58,20 @@ class _PostViewPageState extends State<PostViewPage> {
       ],
       child: Scaffold(
         appBar: AppBar(
-          title: Text('${post.title}'),
+          title: Text(post?.title ?? ''),
         ),
         endDrawer: AppDrawer(),
-        body: FlutterbasePagePadding(
-                  child: SingleChildScrollView(
-            child: Consumer<FlutterbaseForumModel>(
-              builder: (context, model, child) {
-                return FlutterbasePostListView(_args['post']);
-              },
-            ),
-          ),
-        ),
+        body: post == null
+            ? FlutterbaseSpinner()
+            : FlutterbasePagePadding(
+                child: SingleChildScrollView(
+                  child: Consumer<FlutterbaseForumModel>(
+                    builder: (context, model, child) {
+                      return FlutterbasePostListView(post);
+                    },
+                  ),
+                ),
+              ),
       ),
     );
   }

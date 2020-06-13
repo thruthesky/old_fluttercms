@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import '../../../../services/app.globals.dart';
 import '../../../../services/app.space.dart';
@@ -24,20 +27,15 @@ class _KoreaFlutterCommunityHomePageState
   void initState() {
     init();
     super.initState();
+    // Timer(Duration(seconds: 1), () {
+    //   snackBar(title: 'hi', message: 'how are you?', durationInSeconds: 100);
+
+    //   // fb.navigatorKey.currentState.overlay.context.showSnackBar(new SnackBar(content: new Text('hi'), duration: Duration(seconds: 100),));
+
+    // });
   }
 
-  init() async {
-    // final GoogleSignIn _googleSignIn = GoogleSignIn();
-    // final FirebaseAuth _auth = FirebaseAuth.instance;
-
-    // final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
-    //   email: 'anemail@gmail.com',
-    //   password: 'a^swrd.123',
-    // ))
-    //     .user;
-    // print('user:');
-    // print(user);
-  }
+  init() async {}
 
   @override
   Widget build(BuildContext context) {

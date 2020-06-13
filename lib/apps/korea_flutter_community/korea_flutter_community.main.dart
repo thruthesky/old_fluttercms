@@ -23,6 +23,8 @@ void main() async {
   /// TODO: 2020. 06. 06. 현재 Hive 를 사용하지 않음.
   await Hive.initFlutter();
   await Hive.openBox(CACHE_BOX);
+
+  Settings.init();
   runApp(TheApp());
 }
 

@@ -1,6 +1,6 @@
 name: koreafluttercommunity
 description: A new Flutter project.
-version: 1.0.2+2
+version: 1.0.4+3
 
 
 environment:
@@ -33,6 +33,8 @@ dependencies:
   ## Firestore
   cloud_firestore: ^0.13.6
 
+  ## Firebase Messaging
+  firebase_messaging: ^6.0.16
 
   ## 이미지 캐시 및 URL 오류 방지
   cached_network_image: ^2.2.0+1
@@ -55,6 +57,9 @@ dependencies:
   ## 유틸리티 함수
   validators: ^2.0.0+1
 
+
+  ## Snackbar. Scaffold context 대신 Global Key 를 사용
+  flushbar: ^1.10.4
 
 
   ## `Firebase Firestore` 에 파일 업로드를 위한 패키지
