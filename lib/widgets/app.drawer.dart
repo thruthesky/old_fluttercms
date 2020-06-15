@@ -4,7 +4,6 @@ import '../flutterbase/etc/flutterbase.defines.dart';
 import '../flutterbase/etc/flutterbase.globals.dart';
 import '../flutterbase/widgets/flutterbase.text.dart';
 import '../services/app.colors.dart';
-import '../services/app.defines.dart';
 import '../services/app.globals.dart';
 import '../services/app.keys.dart';
 import '../services/app.router.dart';

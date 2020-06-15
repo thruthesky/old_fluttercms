@@ -8,6 +8,7 @@ import 'package:kakao_flutter_sdk/link.dart';
 ///
 /// 이 설정 파일은 Flutterbase 에서 사용하기 위한 것이다.
 class Settings {
+  static String version = '1.0.2';
   static bool initialized = false;
 
   /// 테스트를 하고자 한다면 [testApp] 을 true 로 지정한다.

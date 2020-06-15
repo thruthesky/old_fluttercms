@@ -240,17 +240,27 @@ buildscript {
 
 * 먼저 아래와 같이 앱 배포 준비를 합니다.
 
-  * package name 또는 Bundle ID 조정
-  * 앱 이름 작성
-  * 앱 아이콘 작성
-  * 스플래시 화면 작성
-  * Key store 준비 등 여러가지 준비가 필요합니다.
+* 앱 버전
+  * Android 는 pubspec.yaml 에서 저정
+  * iOS 에서는 각 앱을 배포 할 때 마다 Xcode 에서 수동으로 지정.
 
-  * 이러한 작업을 간단하게 하기 위해서 [flapp](https://www.npmjs.com/package/flapp) 을 사용합니다.
+* 앱 이름 지정
+  * Android 는 flapp.json 의 `name` 속성에 지정
+  * iOS 는 각 앱의 Info.plist 에 지정
 
-* pubspeck 의 버전 수정
+* 앱 아이콘
+  * Android 와 iOS 모두 https://pub.dev/packages/flutter_launcher_icons 를 사용합니다.
+  * 각 앱의 pubspec 에 앱 아이콘을 지정하고 작성합니다.
 
-* 그리고 각 앱 별로 패키징 합니다.
+* 스플래시 화면 작성
+  * Android 에서는 미리 작성해서 flaap.json 에 폴더 복사를 합니다.
+  * iOS 에서는 각 앱을 배포 할 때 마다 Xcode 에서 수동으로 지정.
+
+* Key store 준비 등 여러가지 준비가 필요합니다.
+  * Android 에서는 `flapp.json` 을 따릅니다.
+  * iOS 에서는 필요 없음.
+
+* 그리고 아래의 각 앱 별로 패키징 합니다.
 
 ### Android 에서 패키징
 
@@ -260,21 +270,24 @@ buildscript {
 * $ flapp --app APP_NAME
 
 * App bundle 생성
-  * -t 와 같이 target 을 지정해서, 빌드하면 된다.
+  * -t 와 같이 target 을 지정해서, 빌드하면 됩니다.
   * flutter build appbundle -t lib/apps/korea_flutter_community/korea_flutter_community.main.dart
   * 그리고 Playstore 에 등록
 
-* APK 생성. 릴리스 버전으로 빌드해서, 테스트.
+* 테스트 하는 방법. 릴리스 버전으로 빌드해서, 핸드폰에 넣어 테스트하기 위해서는 APK 를 생성합니다.
   * flutter build apk --release -t lib/apps/korea_flutter_community/korea_flutter_community.main.dart
   * 그리고 flutter install 로 핸드폰에 실행
 
 
 ### iOS 에서 패키징
 
-* Xcode => Runner ==> Info ==> Bundle ID 를 확인합니다. 특히, flapp 이 자동으로 바꾸지 않을 수 있습니다.
+* flapp --doctor 와 같이 해서 현재 앱 설정을 확인합니다.
 
-* $ flapp --app APP_NAME
-* $ flutter build ios --release -t ...
+* 필욯마녀 flapp --app APP_NAME 와 같이 앱을 변경하빈다.
+
+* 아래와 같이 CLI 에서 먼저 빌드를 합니다.
+  * $ flutter build ios --release -t ...
+
 * Xcode 에서 배포
 
 
@@ -286,6 +299,39 @@ buildscript {
 
 $ flutter build apk --release -t lib/apps/korea_flutter_community/korea_flutter_community.main.dart
 $ flutter install
+
+
+
+## 푸시 알림
+
+* 현재 푸시 알림은 파이어베이스 콘솔에서 직접 해야 한다.
+* `Notification` 에서 notification title 과 text 를 적절하게 입력한다.
+* `Target` 에서 `settings.ts` 에 있는 `fcmTopic` 값을 넣는다.
+* `Scheduling` 에서 `Now` 를 선택한다.
+* `Additional options` 에서
+  * `click_action` 에 `FLUTTER_NOTIFICATION_CLICK` 의 값을 주고,
+  * `postId` 에 글 도큐먼트 ID 를 입력하면 된다.
+
+* 그리고 전송을 하면 된다.
+
+* 앱이 Foreground 일 때에는 스낵바가 보이고, Close 를 클릭하면 닫고, 내용을 클릭하면 해당 글 페이지로 이동한다.
+
+* 앱이 백그라운드 또는 종료 되었을 때, 푸시 알림이 핸드폰의 시스템 tray 에 보이는데, 클릭하면 글 페이지로 바로 이동한다.
+
+
+
+
+## 앱 업데이트 알림
+
+* 앱 업데이트 알림은
+  * 업데이트가 있을 때, 운영체제에서 자동으로 업데이트를 한다.
+  * 업데이트가 있을 때, 전체 푸시 알림
+  * 공지사항에 등록,
+  과 같이 한다.
+
+* 따로 업데이트 기능이나 알림 버튼을 화면에 뛰우지 않는다.
+
+
 
 
 ## 주의 사항

@@ -3,6 +3,8 @@ import 'package:kakao_flutter_sdk/link.dart';
 /// default settings
 ///
 class Settings {
+
+  static String version = '1.0.4';
   /// 테스트를 하고자 한다면 [testApp] 을 true 로 지정한다.
   static final bool testApp = false;
 

@@ -1,6 +1,6 @@
-name: fluttercms
+name: korea_flutter_community
 description: A new Flutter project.
-version: 1.0.4+3
+version: 1.0.6+4
 
 
 environment:
@@ -43,8 +43,8 @@ dependencies:
   flutter_datetime_picker: ^1.3.8
 
   ## 캐시에 필요
-  hive: ^1.4.1+1
-  hive_flutter: ^0.3.0+2
+  # hive: ^1.4.1+1
+  # hive_flutter: ^0.3.0+2
 
 
   ## 컴포넌트를 Android 와 iOS 에 맞춰 다르게 보여주는 위젯.
